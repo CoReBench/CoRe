@@ -2,6 +2,11 @@
 
 This repository contains the source code, prompts, and annotation data for CoRe, a benchmark designed to evaluate LLMs’ code reasoning capabilities through static analysis tasks.
 
+### Links
+- Dataset: https://huggingface.co/datasets/danningx/CoRe
+- Website: https://corebench.github.io
+
+  
 ### Repository Structure
 ```
 .
