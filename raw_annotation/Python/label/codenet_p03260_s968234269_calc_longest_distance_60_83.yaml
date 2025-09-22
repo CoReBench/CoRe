@@ -1,0 +1,101 @@
+target_var: vlist_previous 75
+other_vars:
+  - distance 73
+  - distance_list 70
+  - max_distance 81
+  - max_v 82
+  - distance_list 70
+variables:
+  vlist_previous 75:
+    datadep:
+      - vlist 76
+      - vlist 65
+    controldep:
+      - distance_count 67
+      - nodecount 67
+  vlist 65:
+    datadep:
+      - v 60
+    controldep: Null
+  vlist 76:
+    datadep:
+      - vlist_next 68
+      - vlist_next 72
+      - vlist_to_del 74
+    controldep:
+      - distance_count 67
+      - nodecount 67
+  vlist 69:
+    reset: False
+    datadep:
+      - vlist 65
+      - vlist 76
+    controldep:
+      - vlist 69
+      - distance_count 67
+      - nodecount 67
+  vlist_next 68:
+    datadep: Null
+    controldep: 
+      - distance_count 67
+      - nodecount 67
+  vlist_next 72:
+    datadep:
+      - vlist_next 72
+      - vlist_next 68
+      - linklist 60
+      - v 69
+    controldep:
+      - vlist 69
+  vlist_to_del 74:
+    datadep:
+      - vlist_previous 75
+      - vlist_previous 64
+    controldep:
+      - distance_count 67
+      - nodecount 67
+  distance_count 67:
+    reset: False
+    datadep:
+      - distance_count 62
+      - distance_count 71
+    controldep:
+      - distance_count 67
+      - nodecount 67
+  distance_count 71:
+    datadep:
+      - distance_count 62
+      - distance_count 71
+    controldep:
+      - vlist 69
+  distance_count 62:
+    datadep: Null
+    controldep: Null
+  nodecount 67:
+    reset: False
+    datadep:
+      - nodecount 66
+    controldep:
+      - distance_count 67
+      - nodecount 67
+  nodecount 66:
+    datadep:
+      - linklist 60
+    controldep: Null
+  linklist 60:
+    datadep: Null
+    controldep: Null
+  v 60:
+    datadep: Null
+    controldep: Null
+  vlist_previous 64:
+    datadep: Null
+    controldep: Null
+  v 69:
+    datadep: 
+      - vlist 65
+      - vlist 76
+    controldep: 
+      - vlist 69
+      - distance_count 67
+      - nodecount 67

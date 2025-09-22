@@ -1,0 +1,43 @@
+target_var: c 19
+other_vars:   
+  - w 2
+  - c 13
+  - c 18
+variables:
+  c 19:
+    datadep:
+      - cnt 17
+    controldep: Null
+  cnt 17:
+    datadep:
+      - c 14
+      - c 15
+      - c 16
+      - cnt 7
+    controldep: Null
+  c 16:
+    datadep:
+      - cnt 7
+    controldep: Null
+  c 15:
+    datadep:
+      - cnt 7
+    controldep: Null
+  c 14:
+    datadep:
+      - cnt 7
+    controldep: Null
+  cnt 7:
+    datadep:
+        - i 4
+    controldep:
+        - Null 4
+  i 4:
+    datadep: Null
+    controldep:
+        - Null 4
+  Null 4:
+    reset: False
+    datadep: Null
+    controldep:
+        - Null 4

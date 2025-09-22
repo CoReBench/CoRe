@@ -1,0 +1,134 @@
+target_var: sold 49
+other_vars: 
+  - caseNum 18
+variables:
+  nflavors 21:
+    datadep: Null
+    controldep: Null
+  sold 22:
+    datadep: Null
+    controldep: Null
+  preferred 23:
+    datadep: Null
+    controldep: Null
+  i 24:
+    datadep:
+      - i 24
+    controldep:
+      - i 24
+      - nflavors 24
+      - count 29
+  nflavors 24:
+    reset: False
+    datadep:
+      - nflavors 21
+    controldep:
+      - i 24
+      - nflavors 24
+      - count 29
+  leastPopular 27:
+    datadep: Null
+    controldep:
+      - i 24
+      - nflavors 24
+  count 28:
+    datadep: Null
+    controldep:
+      - i 24
+      - nflavors 24
+  count 29:
+    reset: False
+    datadep:
+      - count 28
+    controldep:
+      - i 24
+      - nflavors 24
+  j 34:
+    datadep:
+      - j 34
+    controldep:
+      - count 29
+      - count 34
+      - j 34
+  count 34:
+    reset: False
+    datadep:
+      - count 28
+    controldep:
+      - count 29
+      - count 34
+      - j 34
+  preference 37:
+    datadep: Null
+    controldep:
+      - count 34
+      - j 34
+  preferred 38:
+    datadep:
+      - preferred 23
+      - preferred 38
+      - preference 37
+    controldep:
+      - count 34
+      - j 34
+  sold 39:
+    reset: False
+    datadep:
+      - sold 22
+      - sold 49
+    controldep:
+      - count 34
+      - j 34
+  preference 39:
+    reset: False
+    datadep:
+      - preference 37
+    controldep:
+      - count 34
+      - j 34
+  leastPopular 40:
+    reset: False
+    datadep:
+      - leastPopular 42
+      - leastPopular 27
+    controldep:
+      - count 34
+      - j 34
+  preference 40:
+    reset: False
+    datadep:
+      - preference 37
+    controldep:
+      - count 34
+      - j 34
+  preferred 40:
+    reset: False
+    datadep:
+      - preferred 23
+      - preferred 38
+    controldep:
+      - count 34
+      - j 34
+  leastPopular 42:
+    datadep:
+      - preference 37
+    controldep:
+      - sold 39
+      - preference 39
+      - leastPopular 40
+      - preferred 40
+      - preference 40
+  leastPopular 47:
+    reset: False
+    datadep:
+      - leastPopular 42
+      - leastPopular 27
+    controldep:
+      - count 29
+  sold 49:
+    datadep:
+      - leastPopular 42
+      - leastPopular 27
+    controldep:
+      - leastPopular 47
+

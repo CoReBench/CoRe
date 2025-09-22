@@ -1,0 +1,357 @@
+target_var: A 28
+other_vars:
+  - cnt 13
+  - ans 25
+  - and 29
+  - and 40
+  - ans 44
+early_return: 
+  - 19
+  - 21
+  - 34
+  - 36
+variables:
+  A 28:
+    datadep:
+      - A 14
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - h 16
+      - w 18
+    controldep:
+      - w 22
+      - W 22
+  A 27:
+    datadep:
+      - A 14
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - h 16
+      - w 18
+    controldep:
+      - w 22
+      - w 22
+  A 14:
+    datadep:
+      - A 14
+      - A 9
+      - a 12
+    controldep:
+      - H 11
+  A 9:
+    datadep: Null
+    controldep: Null
+  A 21:
+    reset: False
+    datadep:
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - A 14
+      - A 9
+    controldep:
+      - h 19
+      - H 19
+      - w 19
+      - W 19
+  A 27:
+    datadep:
+      - A 14
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - h 16
+      - w 18
+    controldep:
+      - w 22
+      - W 22
+  A 36:
+    reset: False
+    datadep:
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - A 14
+    controldep:
+      - h 34
+      - H 34
+      - w 34
+  A 38:
+    datadep:
+      - A 14
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - h 16
+      - w 33
+    controldep:
+      - w 37
+  A 39:
+    datadep:
+      - A 14
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - h 16
+      - w 33
+    controldep:
+      - w 37
+  A 42:
+    datadep:
+      - A 14
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - h 16
+      - w 33
+    controldep:
+      - w 37
+  A 43:
+    datadep:
+      - A 14
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - h 16
+      - w 33
+    controldep:
+      - w 37
+  A 24:
+    datadep:
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - A 14
+      - h 16
+      - w 18
+    controldep: 
+      - w 22
+      - W 22
+  A 23:
+    datadep:
+      - A 23
+      - A 24
+      - A 27
+      - A 28
+      - A 38
+      - A 39
+      - A 42
+      - A 43
+      - A 14
+      - A 9
+      - h 16
+      - w 18
+    controldep:
+      - w 22
+      - W 22
+  a 12:
+    datadep: Null
+    controldep:
+      - H 11
+  w 22:
+    reset: False
+    datadep:
+      - w 18
+    controldep:
+      - A 21
+      - h 21
+      - w 21
+  W 22:
+    reset: False
+    datadep:
+      - W 8
+    controldep:
+      - A 21
+      - h 21
+      - w 21
+  W 18:
+    reset: False
+    datadep:
+      - W 8
+    controldep:
+      - W 18
+      - h 17
+  w 18:
+    datadep:
+      - W 8
+    controldep:
+      - h 17
+      - W 18
+  w 19:
+    reset: False
+    datadep:
+      - w 18
+    controldep:
+      - W 18
+  w 37:
+    reset: False
+    datadep:
+      - w 33
+    controldep:
+      - A 36
+      - h 36
+      - w 36
+  w 33:
+    datadep:
+      - W 8
+    controldep:
+      - W 33
+      - h 17
+  W 33:
+    reset: False
+    datadep:
+      - W 8
+    controldep:
+      - W 33
+      - h 17
+  w 34:
+    reset: False
+    datadep:
+      - w 33
+    controldep:
+      - W 33
+  W 19:
+    reset: False
+    datadep:
+      - W 8
+    controldep:
+      - W 18
+  W 8:
+    datadep: Null
+    controldep: Null
+  H 34:
+    reset: False
+    datadep:
+      - H 8
+    controldep:
+      - W 33
+  H 11:
+    reset: False
+    datadep:
+      - H 8
+    controldep:
+      - H 11
+  H 8:
+    datadep: Null
+    controldep: Null
+  h 19:
+    reset: False
+    datadep:
+      - h 16
+    controldep:
+      - W 18
+  h 34:
+    reset: False
+    datadep:
+      - h 16
+    controldep:
+      - W 33
+  H 19:
+    reset: False
+    datadep:
+      - H 8
+    controldep:
+      - W 18
+  h 17:
+    reset: False
+    datadep:
+      - h 16
+    controldep:
+      - H 16
+  h 16:
+    datadep:
+      - H 8
+    controldep:
+      - H 16
+  H 16:
+    reset: False
+    datadep:
+      - H 8
+    controldep:
+      - H 16
+  h 21:
+    reset: False
+    datadep:
+      - h 16
+    controldep:
+      - h 19
+      - H 19
+      - w 19
+      - W 19
+  w 21:
+    reset: False
+    datadep:
+      - w 18
+    controldep:
+      - h 19
+      - H 19
+      - w 19
+      - W 19
+  h 36:
+    reset: False
+    datadep:
+      - h 16
+    controldep:
+      - h 34
+      - H 34
+      - w 34
+  w 36:
+    reset: False
+    datadep:
+      - w 33
+    controldep:
+      - h 34
+      - H 34
+      - w 34

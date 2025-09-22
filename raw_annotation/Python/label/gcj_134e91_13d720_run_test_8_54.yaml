@@ -1,0 +1,270 @@
+target_var: found 34
+other_vars:
+  - attempt_number 11
+  - attempt_number 31
+  - missing 10
+  - missing 47
+  - missing 53
+  - F 8
+  - i 12
+variables:
+  sol 9:
+    datadep: Null
+    controldep: Null
+  Null 12:
+    reset: False
+    datadep: Null
+    controldep:
+      - Null 12
+  exclude 13:
+    datadep: Null
+    controldep:
+      - Null 12
+  found 14:
+    datadep: Null
+    controldep:
+      - Null 12
+  sol 20:
+    reset: False
+    datadep:
+      - sol 9
+      - sol 46
+      - sol 52
+    controldep:
+      - Null 12
+  found 21:
+    datadep:
+      - found 21
+      - found 34
+      - found 14
+    controldep:
+      - sol 20
+  sol 22:
+    reset: False
+    datadep:
+      - sol 9
+      - sol 46
+      - sol 52
+    controldep:
+      - Null 12
+  found 23:
+    datadep:
+      - found 23
+      - found 34
+      - found 14
+    controldep:
+      - sol 22
+  sol 24:
+    reset: False
+    datadep:
+      - sol 9
+      - sol 46
+      - sol 52
+    controldep:
+      - Null 12
+  found 25:
+    datadep:
+      - found 25
+      - found 34
+      - found 14
+    controldep:
+      - sol 24
+  sol 26:
+    reset: False
+    datadep:
+      - sol 9
+      - sol 46
+      - sol 52
+    controldep:
+      - Null 12
+  found 27:
+    datadep:
+      - found 27
+      - found 34
+      - found 14
+    controldep:
+      - sol 26
+  sol 28:
+    reset: False
+    datadep:
+      - sol 9
+      - sol 46
+      - sol 52
+    controldep:
+      - Null 12
+  found 29:
+    datadep:
+      - found 29
+      - found 34
+      - found 14
+    controldep:
+      - sol 28
+  Null 30:
+    reset: False
+    datadep: Null
+    controldep:
+      - Null 12
+      - Null 30
+  r 33:
+    datadep: Null
+    controldep:
+      - Null 30
+  found 34:
+    datadep:
+      - found 14
+      - found 21
+      - found 23
+      - found 25
+      - found 27
+      - found 29
+      - found 34
+      - r 33
+    controldep:
+      - Null 30
+  found 35:
+    reset: False
+    datadep:
+      - found 21
+      - found 34
+      - found 14
+    controldep:
+      - Null 12
+  exclude 36:
+    datadep:
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+    controldep:
+      - found 35
+  found 37:
+    reset: False
+    datadep:
+      - found 23
+      - found 34
+      - found 14
+    controldep:
+      - Null 12
+  exclude 38:
+    datadep:
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+    controldep:
+      - found 37
+  found 39:
+    reset: False
+    datadep:
+      - found 25
+      - found 34
+      - found 14
+    controldep:
+      - Null 12
+  exclude 40:
+    datadep:
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+    controldep:
+      - found 39
+  found 41:
+    reset: False
+    datadep:
+      - found 27
+      - found 34
+      - found 14
+    controldep:
+      - Null 12
+  exclude 42:
+    datadep:
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+    controldep:
+      - found 41
+  found 43:
+    reset: False
+    datadep:
+      - found 29
+      - found 34
+      - found 14
+    controldep:
+      - Null 12
+  exclude 44:
+    datadep:
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+    controldep:
+      - found 43
+  exclude 45:
+    reset: False
+    datadep:
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+    controldep:
+      - Null 12
+  sol 46:
+    datadep:
+      - sol 9
+      - sol 46
+      - sol 52
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+    controldep:
+      - exclude 45
+  r 50:
+    datadep: Null
+    controldep:
+      - exclude 45
+  exclude 51:
+    datadep:
+      - exclude 13
+      - exclude 36
+      - exclude 38
+      - exclude 40
+      - exclude 42
+      - exclude 44
+      - exclude 51
+      - r 50
+    controldep:
+      - exclude 45
+  sol 52:
+    datadep:
+      - sol 9
+      - sol 46
+      - sol 52
+      - exclude 51
+    controldep:
+      - exclude 45
+
+

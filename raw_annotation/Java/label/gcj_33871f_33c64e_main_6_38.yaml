@@ -1,0 +1,106 @@
+target_var: res 32
+other_vars: 
+  - sol 12
+  - map 17
+  - map 25
+  - map 26
+  - MOD 9
+  - time 19
+  - edges 20
+variables: 
+  t 10:
+    datadep: Null
+    controldep: Null
+  tt 11:
+    datadep: Null
+    controldep: Null
+  tt 13:
+    datadep: 
+      - tt 13
+      - tt 11
+    controldep: 
+      - tt 13
+      - t 13
+  t 13:
+    reset: False
+    datadep:
+      - t 10
+    controldep:
+      - tt 13
+      - t 13
+  D 16:
+    datadep: Null
+    controldep:
+      - tt 13
+      - t 13
+  i 28:
+    datadep:
+      - i 28
+    controldep:
+      - tt 13
+      - t 13
+      - D 28
+      - i 28
+  D 28:
+    reset: False
+    datadep:
+      - D 16
+    controldep:
+      - tt 13
+      - t 13
+      - D 28
+      - i 28
+  u 30:
+    datadep: Null
+    controldep:
+      - D 28
+      - i 28
+  v 31:
+    datadep: Null
+    controldep:
+      - D 28
+      - i 28
+  res 32:
+    datadep:
+      - i 28
+      - u 30
+      - v 31
+      - order 23
+      - order 18
+    controldep:
+      - D 28
+      - i 28
+  order 23:
+    datadep:
+      - i 22
+    controldep:
+      - i 22
+      - C 22
+  order 18:
+    datadep:
+      - C 16
+    controldep:
+      - tt 13
+      - t 13
+  i 22:
+    datadep:
+      - i 22
+    controldep:
+      - i 22
+      - C 22
+      - tt 13
+      - t 13
+  C 22:
+    reset: False
+    datadep:
+      - C 16
+    controldep:
+      - i 22
+      - C 22
+      - tt 13
+      - t 13
+  C 16:
+    datadep: Null
+    controldep:
+      - tt 13
+      - t 13

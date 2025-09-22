@@ -1,0 +1,173 @@
+target_var: ans 79
+other_vars: Null
+variables:
+  ans 79:
+    datadep:
+      - nums 62
+      - j 78
+      - k 73
+      - k 80
+    controldep:
+      - di 78
+      - i 78
+  nums 62:
+    datadep:
+      - nums 58
+    controldep: Null
+  nums 60:
+    reset: False
+    datadep: 
+      - nums 58
+    controldep: 
+      - nums 60
+  nums 58:
+    datadep: Null
+    controldep: Null
+  req 58:
+    datadep: Null
+    controldep: Null
+  req 63:
+    reset: False
+    datadep: 
+      - req 58
+    controldep:
+      - req 63
+  di 78:
+    reset: False
+    datadep:
+      - di 72
+    controldep:
+      - di 78
+      - i 78
+      - di 77
+  di 77:
+    reset: False
+    datadep:
+      - di 72
+    controldep:
+      - di 77
+  di 72:
+    datadep:
+      - d 71
+      - d 69
+    controldep: Null
+  d 69:
+    datadep: Null 
+    controldep: Null
+  d 71:
+    datadep:
+      - i 70
+      - d 69
+      - d 71
+      - l 68
+      - i 70
+    controldep:
+      - l 70
+  l 70:
+    reset: False
+    datadep:
+      - l 68
+    controldep:
+      - l 70
+  l 68:
+    datadep:
+      - l 67
+      - l 65
+      - l 61
+      - l 59
+      - l 64
+    controldep: Null
+  l 67:
+    datadep:
+      - l 67
+      - l 65
+      - l 61
+      - l 64
+      - i 66
+    controldep:
+      - l 66
+  l 66:
+    reset: False
+    datadep:
+      - l 65
+      - l 61
+      - l 59
+      - l 67
+      - l 64
+    controldep:
+      - l 66
+  l 65:
+    datadep:  
+      - l 64
+      - l 65
+      - l 61
+      - i 63
+    controldep:
+      - req 63
+  l 64:
+    datadep:
+      - l 65
+      - l 61
+      - l 64
+      - i 63
+    controldep:
+      - req 63
+  l 61:
+    datadep: 
+      - l 61
+      - l 59
+    controldep: 
+      - nums 60
+  l 59:
+    datadep: Null 
+    controldep: Null
+  i 70:
+    datadep: 
+      - l 68 
+    controldep: 
+      - l 70
+  i 66:
+    datadep:
+      - l 67
+      - l 65
+      - l 61
+      - l 59
+      - l 64
+    controldep:
+      - l 66
+  i 63:
+    datadep:
+      - req 58
+    controldep:
+      - req 63
+  i 77:
+    datadep:
+      - di 72
+    controldep:
+      - di 77
+  j 78:
+    datadep:
+      - di 72
+      - i 77
+    controldep:
+      - di 78
+      - i 78
+      - di 77
+  k 73:
+    datadep: Null
+    controldep: Null
+  k 80:
+    datadep:
+      - k 80
+      - k 73
+    controldep:
+      - i 78
+      - di 78
+  i 78:
+    reset: False
+    datadep:
+      - i 77
+    controldep:
+      - di 78
+      - i 78
+      - di 77

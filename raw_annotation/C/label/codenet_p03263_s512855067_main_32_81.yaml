@@ -1,0 +1,113 @@
+target_var: haveCoin 54
+other_vars:
+  - old_y 55
+  - old_x 56
+  - pos 52
+  - out 51
+  - out 64
+  - out 48
+  - out 61
+  - pos 65
+  - old_y 68
+  - old_x 69
+early_return: Null
+variables:
+  haveCoin 54:
+    datadep:
+      - haveCoin 37
+      - haveCoin 54
+      - haveCoin 67
+      - a 43
+      - j 46
+    controldep:
+      - j 46
+      - w 46
+  haveCoin 67:
+    datadep:
+      - haveCoin 37
+      - haveCoin 54
+      - haveCoin 67
+      - a 43
+      - j 59
+    controldep:
+      - j 59
+  haveCoin 37:
+    datadep: Null
+    controldep: Null
+  a 43:
+    datadep:
+      - t 41
+      - j 40
+    controldep:
+      - j 40
+      - w 40
+  j 46:
+    datadep:
+      - j 46
+    controldep:
+      - j 46
+      - w 46
+      - i 45
+  j 59:
+    datadep:
+      - w 35
+      - j 59
+    controldep:
+      - j 59
+      - i 45
+  w 46:
+    reset: False
+    datadep: 
+      - w 35
+    controldep:
+      - j 46
+      - w 46
+      - i 45
+  w 35:
+    datadep: Null
+    controldep: Null
+  w 40:
+    reset: False
+    datadep: 
+      - w 35
+    controldep:
+      - i 39
+      - h 39
+      - j 40
+      - w 40
+  j 40:
+    datadep:
+      - j 40
+    controldep:
+      - i 39
+      - h 39
+      - j 40
+      - w 40
+  i 39:
+    datadep:
+      - i 39
+    controldep:
+      - i 39
+      - h 39
+  h 39:
+    reset: False
+    datadep:
+      - h 35
+    controldep:
+      - i 39
+      - h 39
+  h 35:
+    datadep: Null
+    controldep: Null
+  t 41:
+    datadep: Null
+    controldep:
+      - j 40
+      - w 40
+  i 45:
+    reset: False
+    datadep:
+      - i 39
+    controldep:
+      - i 39
+      - h 39

@@ -1,0 +1,218 @@
+target_var: C 57
+other_vars: 
+  - offset 47
+  - offset 32
+  - B 43
+  - B 37
+  - beg 29
+  - sumB 73
+  - B 35
+  - B 41
+  - flag 45
+  - flag 39
+  - end 35
+  - end 37
+  - beg 41
+  - beg 43
+early_return: 
+  - 18
+  - 36
+  - 38
+  - 42
+  - 44
+  - 58
+  - 60
+  - 64
+  - 66
+variables:
+  C 57:
+    datadep:
+      - A 22
+      - pos 24
+      - offset 54
+      - offset 69
+      - end 57
+      - end 52
+      - end 59
+    controldep:
+      - flag 56
+  A 22:
+    datadep:
+      - A 16
+    controldep:
+      - N 18
+  A 16:
+    datadep: 
+      - i 15
+    controldep:
+      - i 15
+      - N 15
+  i 15:
+    datadep:
+      - i 15
+    controldep:
+      - i 15
+      - N 15
+  N 15:
+    reset: False
+    datadep:
+      - N 13
+    controldep:
+      - i 15
+      - N 15
+  N 13:
+    datadep: Null
+    controldep: Null
+  N 18:
+    reset: False
+    datadep: 
+      - N 13
+    controldep: Null
+  flag 56:
+    reset: False
+    datadep:
+      - flag 53
+      - flag 61
+      - flag 67
+    controldep:
+      - Null 55
+  flag 53:
+    datadep: Null
+    controldep:
+      - N 18
+  flag 61:
+    datadep: Null
+    controldep:
+      - end 60
+      - beg 60
+  flag 67:
+    datadep: Null
+    controldep:
+      - end 66
+      - beg 66
+  Null 55:
+    datadep: Null
+    controldep:
+      - Null 55
+      - N 18
+      - end 58
+      - beg 58
+      - end 60
+      - beg 60
+      - end 64
+      - beg 64
+      - end 66
+      - beg 66
+  end 58:
+    reset: False
+    datadep:
+      - end 57
+    controldep:
+      - flag 56
+  end 60:
+    reset: False
+    datadep:
+      - end 59
+    controldep:
+      - end 58
+      - beg 58
+  end 64:
+    reset: False
+    datadep:
+      - end 57
+      - end 59
+      - end 52
+    controldep:
+      - flag 56
+  end 66:
+    reset: False
+    datadep:
+      - end 57
+      - end 59
+      - end 52
+    controldep:
+      - end 64
+      - beg 64
+  beg 58:
+    reset: False
+    datadep:
+      - beg 51
+      - beg 63
+      - beg 65
+    controldep:
+      - flag 56
+  beg 60:
+    reset: False
+    datadep:
+      - beg 51
+      - beg 63
+      - beg 65
+    controldep:
+      - end 58
+      - beg 58
+  beg 64:
+    reset: False
+    datadep:
+      - beg 63
+    controldep:
+       - flag 56
+  beg 66:
+    reset: False
+    datadep:
+      - beg 65
+    controldep:
+      - end 64
+      - beg 64
+  end 57:
+    datadep:
+      - end 52
+      - end 59
+      - end 57
+    controldep:
+      - flag 56
+  end 59:
+    datadep:
+      - end 57
+    controldep:
+      - end 58
+      - beg 58
+  beg 63:
+    datadep:
+      - beg 51
+      - beg 65
+      - beg 63
+    controldep:
+      - flag 56
+  beg 65:
+    datadep:
+      - beg 63
+    controldep:
+      - end 64
+      - beg 64
+  end 52:
+    datadep:
+      - N 13
+    controldep:
+      - N 18
+  beg 51:
+    datadep: Null
+    controldep: 
+       - N 18
+  offset 54:
+    datadep:  Null
+    controldep:
+      - N 18
+  offset 69:
+    datadep: 
+      - offset 54
+      - offset 69
+    controldep:
+      - end 66
+      - beg 66
+      - end 60
+      - beg 60
+  pos 24:
+    datadep:  
+      - N 13
+    controldep:
+      - N 18

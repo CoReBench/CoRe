@@ -1,0 +1,70 @@
+target_var: totalDamage 27
+other_vars:
+  - shoot 2
+  - chargeIndexes 7
+  - chargeInfo 8
+  - previousCharge 11
+  - chargeInfo 15
+  - firstCharge 16
+  - chargeInfo 18
+  - shotsAfterCharge 20
+  - shotsAfterCharge 26
+  - chargeIndexes 22
+  - index 12
+early_return: 
+  - 31
+  - 33
+  - 37
+  - 43
+variables:
+  charge 3:
+    datadep: Null
+    controldep: Null
+  robotsProgram 1:
+    datadep: Null
+    controldep: Null
+  totalDamage 4:
+    datadep: Null
+    controldep: Null
+  currentDamage 5:
+    datadep: Null
+    controldep: Null
+  robotsProgram 12:
+    reset: False
+    datadep:
+      - robotsProgram 1
+    controldep:
+      - robotsProgram 12
+  action 12:
+    datadep:
+      - robotsProgram 1
+    controldep:
+      - robotsProgram 12
+  action 13:
+    reset: False
+    datadep:
+      - action 12
+    controldep:
+      - robotsProgram 12
+  charge 13:
+    reset: False
+    datadep:
+      - charge 3
+    controldep:
+      - robotsProgram 12
+  currentDamage 23:
+    datadep:
+      - currentDamage 23
+      - currentDamage 5
+    controldep:
+      - action 13
+      - charge 13
+  totalDamage 27:
+    datadep:
+      - currentDamage 23
+      - currentDamage 5
+      - totalDamage 27
+      - totalDamage 4
+    controldep:
+      - action 13
+      - charge 13

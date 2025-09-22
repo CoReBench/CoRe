@@ -1,0 +1,433 @@
+target_var: excess_balls 31
+other_vars: 
+  - grid 12
+  - l 25
+  - grid 27
+  - l 45
+  - grid 47
+  - l 54
+early_return: 
+  - 2
+  - 18
+  - 59
+  - 62
+variables:
+  B 1:
+    datadep: Null
+    controldep: Null
+  B 2:
+    reset: False
+    datadep:
+      - B 1
+    controldep: Null
+  C 5:
+    datadep:
+      - B 1
+    controldep:
+      - B 2
+  shadowed 12:
+    datadep: 
+      - C 5
+    controldep:
+      - B 2
+  shadowed 13:
+    datadep: Null
+    controldep:
+      - B 2
+  B 14:
+    datadep: 
+      - B 1
+    controldep:
+      - B 2
+  B 15:
+    datadep: 
+      - B 1
+    controldep:
+      - B 2
+  C 17:
+    reset: False
+    datadep:
+      - C 5
+    controldep:
+      - B 2
+      - C 17
+  i 17:
+    datadep:
+      - C 5
+    controldep:
+      - B 2
+      - C 17
+  B 18:
+    reset: False
+    datadep:
+      - B 1
+      - B 14
+      - B 15
+      - B 38
+    controldep:
+      - C 17
+  i 18:
+    reset: False
+    datadep:
+      - i 17
+    controldep:
+      - C 17
+  shadowed 18:
+    reset: False
+    datadep:
+      - shadowed 12
+      - shadowed 13
+      - shadowed 26
+      - shadowed 36
+      - shadowed 39
+      - shadowed 50
+    controldep:
+      - C 17
+  B 20:
+    reset: False
+    datadep:
+      - B 1
+      - B 14
+      - B 15
+      - B 38
+    controldep:
+      - B 18
+      - i 18
+      - shadowed 18
+  i 20:
+    reset: False
+    datadep:
+      - i 17
+    controldep:
+      - B 18
+      - i 18
+      - shadowed 18
+  shadowed 20:
+    reset: False
+    datadep:
+      - shadowed 12
+      - shadowed 13
+      - shadowed 26
+      - shadowed 36
+      - shadowed 39
+      - shadowed 50
+    controldep:
+      - B 18
+      - i 18
+      - shadowed 18
+  unshadowed_balls 21:
+    datadep: Null
+    controldep:
+      - B 20
+      - i 20
+      - shadowed 20
+  j 22:
+    datadep:
+      - i 17
+    controldep:
+      - B 20
+      - i 20
+      - shadowed 20
+  j 24:
+    reset: False
+    datadep:
+      - j 22
+      - j 29
+    controldep:
+      - B 20
+      - i 20
+      - shadowed 20
+      - j 24
+      - shadowed 24
+  shadowed 24:
+    reset: False
+    datadep:
+      - shadowed 12
+      - shadowed 13
+      - shadowed 26
+      - shadowed 36
+      - shadowed 39
+      - shadowed 50
+    controldep:
+      - B 20
+      - i 20
+      - shadowed 20
+      - j 24
+      - shadowed 24
+  shadowed 26:
+    datadep:
+      - j 22
+      - j 29
+    controldep:
+      - j 24
+      - shadowed 24
+  unshadowed_balls 27:
+    datadep:
+      - unshadowed_balls 21
+      - unshadowed_balls 27
+    controldep:
+      - j 24
+      - shadowed 24
+  j 29:
+    datadep:
+      - j 22
+      - j 29
+    controldep:
+      - j 24
+      - shadowed 24
+  B 30:
+    reset: False
+    datadep:
+      - B 1
+      - B 14
+      - B 15
+      - B 38
+    controldep:
+      - B 20
+      - i 20
+      - shadowed 20
+  i 30:
+    reset: False
+    datadep:
+      - i 17
+    controldep:
+      - B 20
+      - i 20
+      - shadowed 20
+  unshadowed_balls 30:
+    reset: False
+    datadep:
+      - unshadowed_balls 21
+      - unshadowed_balls 27
+    controldep:
+      - B 20
+      - i 20
+      - shadowed 20
+  excess_balls 31:
+    datadep:
+      - i 17
+      - B 1
+      - B 14
+      - B 15
+      - B 38
+      - unshadowed_balls 21
+      - unshadowed_balls 27
+    controldep:
+      - B 30
+      - i 30
+      - unshadowed_balls 30
+  j 32:
+    datadep:
+      - i 17
+    controldep:
+      - B 30
+      - i 30
+      - unshadowed_balls 30
+  excess_balls 33:
+    reset: False
+    datadep:
+      - excess_balls 31
+      - excess_balls 35
+    controldep:
+      - B 30
+      - i 30
+      - unshadowed_balls 30
+      - excess_balls 33
+  j 34:
+    datadep:
+      - j 32
+      - j 34
+    controldep:
+      - excess_balls 33
+  excess_balls 35:
+    datadep:
+      - excess_balls 31
+      - excess_balls 35
+    controldep:
+      - excess_balls 33
+  shadowed 36:
+    datadep:
+      - j 32
+      - j 34
+    controldep:
+      - excess_balls 33
+  B 38:
+    datadep:
+      - i 17
+      - B 1
+      - B 14
+      - B 15
+      - B 38
+      - unshadowed_balls 21
+      - unshadowed_balls 27
+    controldep:
+      - B 30
+      - i 30
+      - unshadowed_balls 30
+  shadowed 39:
+    datadep:
+      - i 17
+    controldep:
+      - B 30
+      - i 30
+      - unshadowed_balls 30
+  B 40:
+    reset: False
+    datadep:
+      - B 1
+      - B 14
+      - B 15
+      - B 38
+    controldep:
+      - B 18
+      - i 18
+      - shadowed 18
+  i 40:
+    reset: False
+    datadep:
+      - i 17
+    controldep:
+      - B 18
+      - i 18
+      - shadowed 18
+  shadowed 40:
+    reset: False
+    datadep:
+      - shadowed 12
+      - shadowed 13
+      - shadowed 26
+      - shadowed 36
+      - shadowed 39
+      - shadowed 50
+    controldep:
+      - B 18
+      - i 18
+      - shadowed 18
+  r 41:
+    datadep:
+      - i 17
+      - B 1
+      - B 14
+      - B 15
+      - B 38
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+  j 42:
+    datadep:
+      - i 17
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+  j 44:
+    reset: False
+    datadep:
+      - j 42
+      - j 47
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+      - j 44
+      - C 44
+      - shadowed 44
+  C 44:
+    reset: False
+    datadep:
+      - C 5
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+      - j 44
+      - C 44
+      - shadowed 44
+  shadowed 44:
+    reset: False
+    datadep:
+      - shadowed 12
+      - shadowed 13
+      - shadowed 26
+      - shadowed 36
+      - shadowed 39
+      - shadowed 50
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+      - j 44
+      - C 44
+      - shadowed 44
+  j 47:
+    datadep:
+      - j 42
+      - j 47
+    controldep:
+      - j 44
+      - C 44
+      - shadowed 44
+  j 48:
+    reset: False
+    datadep:
+      - j 42
+      - j 47
+      - j 53
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+      - j 48
+      - C 48
+      - r 48
+  C 48:
+    reset: False
+    datadep:
+      - C 5
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+      - j 48
+      - C 48
+      - r 48
+  r 48:
+    reset: False
+    datadep:
+      - r 41
+      - r 51
+    controldep:
+      - B 40
+      - i 40
+      - shadowed 40
+      - j 48
+      - C 48
+      - r 48
+  shadowed 50:
+    datadep:
+      - j 42
+      - j 47
+      - j 53
+    controldep:
+      - j 48
+      - C 48
+      - r 48
+  r 51:
+    datadep:
+      - r 41
+      - r 51
+    controldep:
+      - j 48
+      - C 48
+      - r 48
+  j 53:
+    datadep:
+      - j 42
+      - j 47
+      - j 53
+    controldep:
+      - j 48
+      - C 48
+      - r 48
+

@@ -1,0 +1,300 @@
+target_var: open 115
+other_vars:
+  - ans 101
+  - ans 112
+  - ans 120
+early_return:
+  - 107
+  - 111
+  - 119
+variables:
+  Null 91:
+    reset: False
+    datadep: Null
+    controldep:
+      - Null 91
+  N 92:
+    datadep: Null
+    controldep:
+      - Null 91
+  R 93:
+    datadep:
+      - N 92
+    controldep:
+      - Null 91
+  i 94:
+    datadep:
+      - i 94
+    controldep:
+      - Null 91
+      - i 94
+      - N 94
+  N 94:
+    reset: False
+    datadep:
+      - N 92
+    controldep:
+      - Null 91
+      - i 94
+      - N 94
+  r 95:
+    datadep: Null
+    controldep:
+      - i 94
+      - N 94
+  k 95:
+    datadep: Null
+    controldep:
+      - i 94
+      - N 94
+  j 96:
+    datadep:
+      - j 96
+    controldep:
+      - i 94
+      - N 94
+      - k 96
+      - j 96
+  k 96:
+    reset: False
+    datadep:
+      - k 95
+    controldep:
+      - i 94
+      - N 94
+      - k 96
+      - j 96
+  R 97:
+    datadep:
+      - r 95
+    controldep:
+      - k 96
+      - j 96
+  P 99:
+    datadep: Null
+    controldep:
+      - Null 91
+  i 100:
+    datadep:
+      - i 100
+    controldep:
+      - Null 91
+      - i 100
+      - P 100
+  P 100:
+    reset: False
+    datadep:
+      - P 99
+    controldep:
+      - Null 91
+      - i 100
+      - P 100
+  s 101:
+    datadep: Null
+    controldep:
+      - i 100
+      - P 100
+  d 101:
+    datadep: Null
+    controldep:
+      - i 100
+      - P 100
+  v 101:
+    datadep: Null
+    controldep:
+      - i 100
+      - P 100
+  open 102:
+    datadep: Null
+    controldep:
+      - i 100
+      - P 100
+  open 103:
+    datadep:
+      - s 101
+      - v 101
+      - open 102
+    controldep:
+      - i 100
+      - P 100
+  close 104:
+    datadep:
+      - N 92
+    controldep:
+      - i 100
+      - P 100
+  open 105:
+    reset: False
+    datadep:
+      - open 103
+      - open 106
+      - open 115
+      - open 123
+    controldep:
+      - i 100
+      - P 100
+      - open 105
+  now 106:
+    datadep:
+      - open 103
+      - open 106
+      - open 115
+      - open 123
+    controldep:
+      - open 105
+  open 106:
+    datadep:
+      - open 103
+      - open 106
+      - open 115
+      - open 123
+    controldep:
+      - open 105
+  now 107:
+    datadep:
+      - now 106
+    controldep:
+      - open 105
+  j 108:
+    datadep:
+      - j 108
+    controldep:
+      - now 107
+      - j 108
+      - N 108
+  N 108:
+    reset: False
+    datadep:
+      - N 92
+    controldep:
+      - now 107
+      - j 108
+      - N 108
+  R 109:
+    reset: False
+    datadep:
+      - R 97
+      - R 93
+    controldep:
+      - j 108
+      - N 108
+  now 109:
+    reset: False
+    datadep:
+      - now 107
+    controldep:
+      - j 108
+      - N 108
+  j 109:
+    reset: False
+    datadep:
+      - j 108
+    controldep:
+      - j 108
+      - N 108
+  close 110:
+    reset: False
+    datadep:
+      - close 104
+      - close 116
+      - close 124
+    controldep:
+      - R 109
+      - now 109
+      - j 109
+  j 110:
+    reset: False
+    datadep:
+      - j 108
+    controldep:
+      - R 109
+      - now 109
+      - j 109
+  j 111:
+    reset: False
+    datadep:
+      - j 108
+    controldep:
+      - close 110
+      - j 110
+  d 111:
+    reset: False
+    datadep:
+      - d 101
+    controldep:
+      - close 110
+      - j 110
+  open 115:
+    datadep:
+      - open 106
+      - open 115
+      - open 123
+      - now 107
+      - j 108
+    controldep:
+      - j 111
+      - d 111
+  close 116:
+    datadep:
+      - now 107
+      - j 108
+    controldep:
+      - j 111
+      - d 111
+  now 118:
+    reset: False
+    datadep:
+      - now 107
+    controldep:
+      - close 110
+      - j 110
+  close 118:
+    reset: False
+    datadep:
+      - close 104
+      - close 116
+      - close 124
+    controldep:
+      - close 110
+      - j 110
+  j 118:
+    reset: False
+    datadep:
+      - j 108
+    controldep:
+      - close 110
+      - j 110
+  j 119:
+    reset: False
+    datadep:
+      - j 108
+    controldep:
+      - now 118
+      - close 118
+      - j 118
+  d 119:
+    reset: False
+    datadep:
+      - d 101
+    controldep:
+      - now 118
+      - close 118
+      - j 118
+  open 123:
+    datadep:
+      - open 106
+      - open 115
+      - open 123
+      - now 107
+      - j 108
+    controldep:
+      - j 119
+      - d 119
+  close 124:
+    datadep:
+      - now 107
+      - j 108
+    controldep:
+      - j 119
+      - d 119
+

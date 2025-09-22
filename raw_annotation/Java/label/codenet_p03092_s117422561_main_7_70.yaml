@@ -1,0 +1,285 @@
+target_var: dpmax 47
+other_vars:
+  - A 9
+  - B 10
+  - dpmin 16
+  - dpc 15
+  - dpmin2 17
+  - dpc 21
+  - dpmin 22
+  - dpmin2 24
+  - dpmins 30
+  - dpmin 31
+  - dpmin 34
+  - dpmin2 33
+  - dpmin2 36
+  - dpmin 37
+  - rightcost 49
+  - rightcost 51
+  - rightcost 53
+  - rightcost 55
+  - leftcost 57
+  - leftcost 59
+  - leftcost 61
+  - leftcost 63
+  - dpc 65
+variables:
+  N 8:
+    datadep: Null
+    controldep: Null
+  p 11:
+    datadep: 
+      - N 8
+    controldep: Null
+  i 12:
+    datadep:
+      - i 12
+    controldep:
+      - i 12
+      - N 12
+  N 12:
+    reset: False
+    datadep:
+      - N 8
+    controldep:
+      - i 12
+      - N 12
+  p 13:
+    datadep:
+      - i 12
+    controldep:
+      - i 12
+      - N 12
+  dpmax 18:
+    datadep:
+      - N 8
+    controldep: Null
+  dpmax2 19:
+    datadep:
+      - N 8
+    controldep: Null
+  i 20:
+    datadep:
+      - i 20
+    controldep:
+      - i 20
+      - N 20
+  N 20:
+    reset: False
+    datadep:
+      - N 8
+    controldep:
+      - i 20
+      - N 20
+  dpmax 23:
+    datadep:
+      - i 20
+      - p 13
+      - p 11
+    controldep:
+      - i 20
+      - N 20
+  dpmax2 25:
+    datadep:
+      - i 20
+    controldep:
+      - i 20
+      - N 20
+  d 27:
+    datadep:
+      - d 27
+    controldep:
+      - d 27
+      - N 27
+  N 27:
+    reset: False
+    datadep:
+      - N 8
+    controldep:
+      - d 27
+      - N 27
+  i 28:
+    datadep:
+      - i 28
+    controldep:
+      - d 27
+      - N 27
+      - i 28
+      - N 28
+      - d 28
+  N 28:
+    reset: False
+    datadep:
+      - N 8
+    controldep:
+      - d 27
+      - N 27
+      - i 28
+      - N 28
+      - d 28
+  d 28:
+    reset: False
+    datadep:
+      - d 27
+    controldep:
+      - d 27
+      - N 27
+      - i 28
+      - N 28
+      - d 28
+  p 39:
+    reset: False
+    datadep:
+      - p 13
+      - p 11
+    controldep:
+      - i 28
+      - N 28
+      - d 28
+  dpmax 39:
+    reset: False
+    datadep:
+      - dpmax 23
+      - dpmax 18
+      - dpmax 41
+      - dpmax 44
+      - dpmax 47
+    controldep:
+      - i 28
+      - N 28
+      - d 28
+  i 39:
+    reset: False
+    datadep: 
+      - i 28
+    controldep:
+      - i 28
+      - N 28
+      - d 28
+  d 39:
+    reset: False
+    datadep:
+      - d 27
+    controldep:
+      - i 28
+      - N 28
+      - d 28
+  dpmax2 40:
+    datadep:
+      - dpmax 23
+      - dpmax 18
+      - dpmax 41
+      - dpmax 44
+      - dpmax 47
+      - i 28
+      - d 27
+    controldep:
+      - p 39
+      - dpmax 39
+      - d 39
+      - i 39
+  dpmax 41:
+    datadep:
+      - p 13
+      - p 11
+      - i 28
+      - d 27
+    controldep:
+      - p 39
+      - dpmax 39
+      - d 39
+      - i 39
+  p 42:
+    reset: False
+    datadep:
+      - p 13
+      - p 11
+    controldep:
+      - p 39
+      - dpmax 39
+      - d 39
+      - i 39
+  dpmax2 42:
+    reset: False
+    datadep:
+      - dpmax2 19
+      - dpmax2 25
+      - dpmax2 40
+      - dpmax2 43
+      - dpmax2 46
+    controldep:
+      - p 39
+      - dpmax 39
+      - d 39
+      - i 39
+  i 42:
+    reset: False
+    datadep:
+      - i 28
+    controldep:
+      - p 39
+      - dpmax 39
+      - d 39
+      - i 39
+  d 42:
+    reset: False
+    datadep:
+      - d 27
+    controldep:
+      - p 39
+      - dpmax 39
+      - d 39
+      - i 39
+  dpmax2 43:
+    datadep:
+      - p 13
+      - p 11
+      - i 28
+      - d 27
+    controldep:
+      - p 42
+      - dpmax2 42
+      - d 42
+      - i 42
+  dpmax 44:
+    datadep:
+      - dpmax 23
+      - dpmax 18
+      - dpmax 41
+      - dpmax 44
+      - dpmax 47
+      - i 28
+      - d 27
+    controldep:
+      - p 42
+      - dpmax2 42
+      - d 42
+      - i 42
+  dpmax2 46:
+    datadep:
+      - i 28
+      - d 27
+      - dpmax2 19
+      - dpmax2 25
+      - dpmax2 40
+      - dpmax2 43
+      - dpmax2 46
+    controldep:
+      - p 42
+      - dpmax2 42
+      - d 42
+      - i 42
+  dpmax 47:
+    datadep:
+      - i 28
+      - dpmax 23
+      - dpmax 18
+      - dpmax 41
+      - dpmax 44
+      - dpmax 47
+      - d 27
+    controldep:
+      - p 42
+      - dpmax2 42
+      - d 42
+      - i 42

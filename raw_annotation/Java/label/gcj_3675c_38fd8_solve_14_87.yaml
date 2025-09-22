@@ -1,0 +1,601 @@
+target_var: transmuted 81
+other_vars:  Null
+early_return: 
+  - 47
+variables: 
+  M 15:
+    datadep: Null
+    controldep: Null
+  part1 16:
+    datadep:
+      - M 15
+    controldep: Null
+  part2 17:
+    datadep:
+      - M 15
+    controldep: Null
+  quantities 18:
+    datadep:
+      - M 15
+    controldep: Null
+  i 19:
+    datadep:
+      - i 19
+    controldep:
+      - i 19
+      - M 19
+  M 19:
+    reset: False
+    datadep:
+      - M 15
+    controldep:
+      - i 19
+      - M 19
+  nums 20:
+    datadep: Null
+    controldep:
+      - i 19
+      - M 19
+  part1 21:
+    datadep:
+      - i 19
+      - nums 20
+    controldep:
+      - i 19
+      - M 19
+  part2 22:
+    datadep:
+      - i 19
+      - nums 20
+    controldep:
+      - i 19
+      - M 19
+  nums 24:
+    datadep: Null
+    controldep: Null
+  i 25:
+    datadep:
+      - i 25
+    controldep:
+      - i 25
+      - M 25
+  M 25:
+    reset: False
+    datadep:
+      - M 15
+    controldep:
+      - i 25
+      - M 25
+  quantities 26:
+    datadep:
+      - i 25
+      - nums 24
+    controldep:
+      - i 25
+      - M 25
+  transmuted 28:
+    datadep: Null
+    controldep: Null
+  transmuted 29:
+    datadep: 
+      - transmuted 28
+      - part1 16
+      - part1 21
+    controldep: Null
+  transmuted 30:
+    datadep:
+      - transmuted 29
+      - part2 22
+      - part2 17
+    controldep: Null
+  stuck 31:
+    datadep: Null
+    controldep: Null
+  stuck 32:
+    reset: False
+    datadep:  
+      - stuck 31
+      - stuck 48
+    controldep:
+      - stuck 32
+  min 33:
+    datadep: Null
+    controldep:
+      - stuck 32
+  pair 34:
+    datadep: 
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - stuck 32
+      - transmuted 34
+  transmuted 34:
+    reset: False
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - stuck 32
+      - transmuted 34
+  quantities 35:
+    reset: False
+    datadep:
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+    controldep:
+      - transmuted 34
+  pair 35:
+    reset: False
+    datadep: 
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+    controldep:
+      - transmuted 34
+  pair 35:
+    reset: False
+    datadep:
+      - pair 34
+    controldep:
+      - transmuted 34
+  min 35:
+    reset: False
+    datadep:
+      - min 33
+      - min 36
+    controldep:
+      - transmuted 34
+  min 36:
+    datadep:
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+      - pair 34
+    controldep:
+      - quantities 35
+      - pair 35
+      - min 35
+  quantities 38:
+    datadep:
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+      - min 33
+      - min 36
+    controldep:
+      - stuck 32
+  transmuted 39:
+    reset: False
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - stuck 32
+      - transmuted 39
+  pair 39:
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - stuck 32
+      - transmuted 39
+  quantities 40:
+    datadep:
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+      - min 33
+      - min 36
+      - pair 39
+    controldep:
+      - transmuted 39
+  newTransmuted 42:
+    datadep: Null
+    controldep:
+      - stuck 32
+  transmuted 43:
+    reset: False
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - stuck 32
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  pair 43:
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - stuck 32
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  metal 44:
+    datadep:
+      - pair 43
+    controldep:
+      - transmuted 43
+  quantity 45:
+    datadep:
+      - pair 43
+    controldep:
+      - transmuted 43
+  pair 46:
+    reset: False
+    datadep:
+      - pair 43
+    controldep:
+      - transmuted 43
+  metal 46:
+    reset: False
+    datadep:
+      - metal 44
+    controldep:
+      - transmuted 43
+  quantities 46:
+    reset: False
+    datadep:
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+    controldep:
+      - transmuted 43
+  part1 47:
+    reset: False
+    datadep:
+      - part1 16
+      - part1 21
+    controldep:
+      - pair 46
+      - quantities 46
+      - metal 46
+  metal 47:
+    reset: False
+    datadep:
+      - metal 44
+    controldep:
+      - pair 46
+      - quantities 46
+      - metal 46
+  part2 47:
+    reset: False
+    datadep:
+      - part2 22
+      - part2 17
+    controldep:
+      - pair 46
+      - quantities 46
+      - metal 46
+  pair 47:
+    reset: False
+    datadep:
+      - pair 43
+    controldep:
+      - pair 46
+      - quantities 46
+      - metal 46
+  stuck 48:
+    datadep: Null
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  newTransmuted 51:
+    reset: False
+    datadep:
+      - newTransmuted 42
+      - newTransmuted 64
+      - newTransmuted 66
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  part1 51:
+    reset: False
+    datadep:
+      - part1 16
+      - part1 21
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  metal 51:
+    reset: False
+    datadep:
+      - metal 44
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  newTransmuted 52:
+    datadep:
+      - part1 16
+      - part1 21
+      - metal 44
+      - newTransmuted 42
+      - newTransmuted 64
+      - newTransmuted 66
+      - quantity 45
+    controldep:
+      - newTransmuted 51
+      - part1 51
+      - metal 51
+  newTransmuted 54:
+    datadep:
+      - part1 16
+      - part1 21
+      - metal 44
+      - newTransmuted 42
+      - newTransmuted 64
+      - newTransmuted 66
+      - quantity 45
+    controldep:
+      - newTransmuted 51
+      - part1 51
+      - metal 51
+  quantities 56:
+    datadep:
+      - part1 16
+      - part1 21
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+      - metal 44
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  newTransmuted 57:
+    reset: False
+    datadep:
+      - newTransmuted 52
+      - newTransmuted 54
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  part2 57:
+    reset: False
+    datadep:
+      - part2 22
+      - part2 17
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  metal 57:
+    reset: False
+    datadep:
+      - metal 44
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  newTransmuted 58:
+    datadep:
+      - part2 22
+      - part2 17
+      - metal 44
+      - newTransmuted 52
+      - newTransmuted 54
+      - quantity 45
+    controldep:
+      - newTransmuted 57
+      - part2 57
+      - metal 57
+  newTransmuted 60:
+    datadep:
+      - part2 22
+      - part2 17
+      - metal 44
+      - newTransmuted 52
+      - newTransmuted 54
+      - quantity 45
+    controldep:
+      - newTransmuted 57
+      - part2 57
+      - metal 57
+  quantities 62:
+    datadep:
+      - part2 22
+      - part2 17
+      - quantities 26
+      - quantities 18
+      - quantities 38
+      - quantities 40
+      - quantities 56
+      - quantities 62
+      - quantities 68
+      - metal 44
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  newTransmuted 63:
+    reset: False
+    datadep:
+      - newTransmuted 58
+      - newTransmuted 60
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  metal 63:
+    reset: False
+    datadep:
+      - metal 44
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  newTransmuted 64:
+    datadep:
+      - metal 44
+      - newTransmuted 58
+      - newTransmuted 60
+      - quantity 45
+    controldep:
+      - newTransmuted 63
+      - metal 63
+  newTransmuted 66:
+    datadep:
+      - metal 44
+      - newTransmuted 58
+      - newTransmuted 60
+      - quantity 45
+    controldep:
+      - newTransmuted 63
+      - metal 63
+  quantities 68:
+    datadep:
+      - metal 44
+    controldep:
+      - part1 47
+      - metal 47
+      - part2 47
+      - pair 47
+  pair 72:
+    datadep:
+      - newTransmuted 64
+      - newTransmuted 66
+      - newTransmuted 42
+    controldep:
+      - stuck 32
+      - newTransmuted 72
+  newTransmuted 72:
+    reset: False
+    datadep:
+      - newTransmuted 64
+      - newTransmuted 66
+      - newTransmuted 42
+    controldep:
+      - stuck 32
+      - newTransmuted 72
+  metal 73:
+    datadep: 
+      - pair 72
+    controldep:
+      - newTransmuted 72
+  quantity 74:
+    datadep:
+      - pair 72
+    controldep:
+      - newTransmuted 72
+  transmuted 75:
+    reset: False
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - newTransmuted 72
+  metal 75:
+    reset: False
+    datadep:
+      - metal 73
+    controldep:
+      - newTransmuted 72
+  transmuted 76:
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+      - metal 73
+      - quantity 74
+    controldep:
+      - transmuted 75
+      - metal 75
+  transmuted 79:
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+      - metal 73
+      - quantity 74
+    controldep:
+      - transmuted 75
+      - metal 75
+  transmuted 81:
+    reset: False
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+    controldep:
+      - newTransmuted 72
+  metal 81:
+    reset: False
+    datadep:
+    - metal 73
+    controldep:
+      - newTransmuted 72
+  transmuted 82:
+    datadep:
+      - transmuted 30
+      - transmuted 76
+      - transmuted 79
+      - transmuted 82
+      - metal 73
+    controldep:
+      - transmuted 81
+      - metal 81

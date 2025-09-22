@@ -1,0 +1,139 @@
+target_var: chosen_index 56
+other_vars:
+  - case_index 38
+early_return: 
+  - 45
+variables:
+  USED 38:
+    datadep: Null
+    controldep: Null
+  n 40:
+    datadep: Null
+    controldep: Null
+  counts 41:
+    datadep:
+      - n 40
+    controldep: Null
+  n 42:
+    reset: False
+    datadep:
+      - n 40
+    controldep: 
+      - n 42
+  d 44:
+    datadep: Null
+    controldep:
+      - n 42
+  d 45:
+    reset: False
+    datadep:  
+      - d 44
+    controldep:
+      - n 42
+  cur 48:
+    datadep: Null
+    controldep:
+      - d 45
+  d 49:
+    reset: False
+    datadep:
+      - d 44
+    controldep:
+      - d 45
+      - d 49
+  itemaa 50:
+    datadep: Null
+    controldep:
+      - d 49
+  cur 51:
+    datadep:
+      - cur 48
+      - cur 51
+      - itemaa 50
+    controldep:
+      - d 49
+  cur 52:
+    datadep:
+      - cur 48
+      - cur 51
+    controldep:
+      - d 45
+  cur 53:
+    reset: False
+    datadep:
+      - cur 52
+    controldep:
+      - d 45
+      - cur 53
+  index 53:
+    datadep:
+      - cur 52
+    controldep:
+      - d 45
+      - cur 53
+  counts 54:
+    reset: False
+    datadep:
+      - counts 41
+      - counts 55
+      - counts 61
+    controldep:
+      - cur 53
+  index 54:
+    reset: False
+    datadep:
+      - index 53
+    controldep:
+      - cur 53
+  USED 54:
+    reset: False
+    datadep:
+      - USED 38
+    controldep:
+      - cur 53
+  counts 55:
+    datadep:
+      - counts 41
+      - counts 55
+      - counts 61
+      - index 53
+    controldep:
+      - USED 54
+      - counts 54
+      - index 54
+  chosen_index 56:
+    datadep:
+      - counts 41
+      - counts 55
+      - counts 61
+      - cur 52
+    controldep:
+      - d 45
+  counts 57:
+    reset: False
+    datadep:
+      - counts 41
+      - counts 55
+      - counts 61
+    controldep:
+      - d 45
+  chosen_index 57:
+    reset: False
+    datadep:
+      - chosen_index 56
+    controldep:
+      - d 45
+  USED 57:
+    reset: False
+    datadep:
+      - USED 38
+    controldep:
+      - d 45
+  counts 61:
+    datadep:
+      - USED 38
+      - chosen_index 56
+    controldep:
+      - counts 57
+      - chosen_index 57
+      - USED 57

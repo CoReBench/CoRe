@@ -1,0 +1,200 @@
+target_var: p 53
+other_vars:
+  - factorial_inv 7
+  - factorial_inv 8
+  - factorial_inv 10
+  - factorial 4
+  - count_children_res 29
+  - assign_children_res 39
+  - count_children_res 32
+  - r 44
+  - r 47
+  - r 46
+  - assign_children_res 49
+  - children 27
+  - total 36
+  - r 37
+  - count_children_res 38
+  - assign_children_res 42
+  - assign_children_res 49
+variables: 
+  p 53:
+    datadep:
+      - parent 26
+      - parent 18
+      - parent 17
+      - x 52
+    controldep:
+      - order 52
+  parent 26:
+    datadep:
+      - p 22
+      - q 24
+    controldep:
+      - parent 25
+      - q 25
+  parent 25:
+    reset: False
+    datadep:
+      - parent 26
+      - parent 18
+      - parent 17
+    controldep:
+      - g 24
+      - p 24
+  parent 18:
+    datadep: Null
+    controldep: Null
+  parent 17:
+    datadep: 
+      - n 3
+    controldep: Null
+  p 22:
+    datadep:
+      - queue 20
+      - queue 22
+      - queue 28
+    controldep:
+      - queue 21
+  g 24:
+    reset: False
+    datadep:
+      - g 15
+      - g 14
+      - g 11
+    controldep:
+      - g 24
+      - p 24
+      - queue 21
+  g 14:
+    datadep:
+      - g 15
+      - g 14
+      - g 11
+      - b 13
+      - a 13
+    controldep:
+      - n 12
+  g 15:
+    datadep:
+      - g 15
+      - g 14
+      - g 11
+      - a 13
+      - b 13
+    controldep:
+      - n 12
+  g 11:
+    datadep: Null
+    controldep:
+      - n 11
+  n 12:
+    reset: False
+    datadep:
+      - n 3
+    controldep:
+      - n 12
+  n 11:
+    reset: False
+    datadep:
+      - n 3
+    controldep: 
+      - n 11
+  n 3:
+    datadep: Null
+    controldep: Null
+  a 13:
+    datadep:
+      - edge_list 3
+      - i 12
+    controldep:
+      - n 12
+  b 13:
+    datadep:
+      - edge_list 3
+      - i 12
+    controldep:
+      - n 12
+  edge_list 3:
+    datadep: Null
+    controldep: Null
+  queue 21:
+    reset: False
+    datadep:
+      - queue 20
+      - queue 22
+      - queue 28
+    controldep:
+      - queue 21
+  queue 20:
+    datadep: Null
+    controldep: Null
+  queue 28:
+    datadep:
+      - queue 20
+      - queue 22
+      - queue 28
+      - q 24
+    controldep:
+      - parent 25
+      - q 25
+  q 24:
+    datadep:
+      - g 14
+      - g 15
+      - g 11
+      - p 22
+    controldep:
+      - g 24
+      - p 24
+      - queue 21
+  queue 22:
+    datadep:
+      - queue 20
+      - queue 22
+      - queue 28
+    controldep:
+      - queue 21
+  order 52:
+    reset: False
+    datadep:
+      - order 23
+      - order 16
+    controldep:
+      - order 52
+  order 23:
+    datadep:
+      - order 23
+      - order 16
+      - p 22
+    controldep:
+      - queue 21
+  order 16:
+    datadep: Null
+    controldep: Null
+  i 12:
+    datadep:
+      - n 3
+    controldep:
+      - n 12
+  p 24:
+    reset: False
+    datadep:
+      - p 22
+    controldep:
+      - g 24
+      - p 24
+      - queue 21
+  x 52:
+    datadep:
+      - order 23
+      - order 16
+    controldep:
+      - order 52
+  q 25:
+    reset: False
+    datadep:
+      - q 24
+    controldep:
+      - g 24
+      - p 24

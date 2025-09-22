@@ -1,0 +1,151 @@
+target_var: up 89
+other_vars:
+  - t 33
+  - x 31
+  - x 28
+  - do 46
+  - ri 44
+  - ri 58
+  - ri 52
+  - l 54
+  - l 65
+  - le 69
+  - ke 60 
+early_return: 
+  - 94
+  - 108
+variables: 
+  up 40:
+    datadep: Null
+    controldep: Null
+  h 42:
+    reset: False
+    datadep:
+      - h 27
+    controldep:
+      - h 42
+  up 47:
+    datadep:
+      - up 40
+      - up 47
+      - w 27
+    controldep:
+      - h 42
+  j 81:
+    datadep:
+      - w 27
+    controldep:
+      - w 81
+  w 81:
+    reset: False
+    datadep:
+      - w 27
+    controldep:
+      - w 81
+  w 27:
+    datadep: Null
+    controldep: Null
+  h 27:
+    datadep: Null
+    controldep: Null
+  k 27:
+    datadep: Null
+    controldep: Null
+  c 41:
+    datadep: Null
+    controldep: Null
+  c 43:
+    datadep: 
+      - c 41
+      - c 43
+    controldep:
+      - h 42
+  up 82:
+    datadep:
+      - j 81
+    controldep:
+      - w 81
+  h 83:
+    reset: False
+    datadep:
+      - h 27
+    controldep:
+      - w 81
+      - h 83
+  i 83:
+    datadep:
+      - h 27
+    controldep:
+      - w 81
+      - h 83
+  c 84:
+    reset: False
+    datadep:
+      - c 43
+    controldep:
+      - h 83
+  i 84:
+    reset: False
+    datadep:
+      - i 83
+    controldep:
+      - h 83
+  j 84:
+    reset: False
+    datadep:
+      - j 81
+    controldep:
+      - h 83
+  up 85:
+    datadep:
+      - i 83
+      - j 81
+    controldep:
+      - c 84
+      - i 84
+      - j 84
+  l 87:
+    datadep:
+      - i 83
+      - j 81
+      - up 47
+      - up 82
+      - up 85
+      - up 89
+      - up 91
+    controldep:
+      - c 84
+      - i 84
+      - j 84
+  l 88:
+    reset: False
+    datadep:
+      - l 87
+    controldep:
+      - c 84
+      - i 84
+      - j 84
+  k 88:
+    reset: False
+    datadep:
+      - k 27
+    controldep:
+      - c 84
+      - i 84
+      - j 84
+  up 89:
+    datadep:
+      - i 83
+      - j 81
+      - l 87
+    controldep:
+      - l 88
+      - k 88
+  up 91:
+    datadep:
+      - k 27
+      - i 83
+      - j 81
+    controldep:
+      - l 88
+      - k 88

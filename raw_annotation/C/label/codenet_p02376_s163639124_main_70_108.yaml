@@ -1,0 +1,66 @@
+target_var: cmax 90
+other_vars:  
+  - v 75
+  - e 85
+  - a 80
+  - v 83
+  - e 86
+  - et 95
+  - v 88
+  - v 89
+early_return: Null
+variables:
+  cmax 90:
+    datadep:
+      - cmax 90
+      - cmax 77
+      - c 80
+    controldep:
+      - b 87
+      - V 87
+  cmax 77:
+    datadep: Null
+    controldep: Null
+  c 80:
+    datadep: Null
+    controldep:
+      - i 78
+      - E 78
+  b 87:
+    reset: False
+    datadep:
+      - b 80
+    controldep:
+      - i 78
+      - E 78
+  b 80:
+    datadep: Null
+    controldep:
+      - i 78
+      - E 78
+  V 87:
+    reset: False
+    datadep:
+      - V 73
+    controldep:
+      - i 78
+      - E 78
+  i 78:
+    datadep:
+      - i 78
+    controldep:
+      - i 78
+      - E 78
+  E 78:
+    reset: False
+    datadep:
+      - E 73
+    controldep: 
+      - i 78
+      - E 78
+  E 73: 
+    datadep: Null 
+    controldep: Null
+  V 73:
+    datadep: Null 
+    controldep: Null

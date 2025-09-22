@@ -1,0 +1,144 @@
+target_var: speed 21
+other_vars: 
+  - hours_passed 9
+  - hours_passed 12
+variables:
+  speed 5:
+    datadep: Null
+    controldep: Null
+  destination 5:
+    datadep: Null
+    controldep: Null
+  position 5:
+    datadep: Null
+    controldep: Null
+  total_horses 5:
+    datadep: Null
+    controldep: Null
+  horses_running 6:
+    datadep:
+      - total_horses 5
+    controldep: Null
+  finished 8:
+    datadep: Null
+    controldep: Null
+  horses_running 10:
+    reset: False
+    datadep:
+      - horses_running 6
+      - horses_running 26
+    controldep:
+      - horses_running 10
+  i 13:
+    datadep:
+      - i 13
+    controldep:
+      - horses_running 10
+      - i 13
+      - total_horses 13
+  total_horses 13:
+    reset: False
+    datadep:
+      - total_horses 5
+    controldep:
+      - horses_running 10
+      - i 13
+      - total_horses 13
+  finished 15:
+    reset: False
+    datadep:
+      - finished 8
+      - finished 25
+    controldep:
+      - i 13
+      - total_horses 13
+  i 15:
+    reset: False
+    datadep:
+      - i 13
+    controldep:
+      - i 13
+      - total_horses 13
+  position 17:
+    datadep:
+      - position 5
+      - position 20
+      - position 17
+      - i 13
+      - speed 5
+      - speed 21
+    controldep:
+      - finished 15
+      - i 15
+  position 18:
+    reset: False
+    datadep:
+      - position 5
+      - position 20
+      - position 17
+    controldep:
+      - finished 15
+      - i 15
+  i 18:
+    reset: False
+    datadep:
+      - i 13
+    controldep:
+      - finished 15
+      - i 15
+  position 20:
+    datadep:
+      - position 5
+      - position 20
+      - position 17
+      - i 13
+    controldep:
+      - i 18
+      - position 18
+  speed 21:
+    datadep:
+      - speed 5
+      - speed 21
+      - i 13
+    controldep:
+      - i 18
+      - position 18
+  position 23:
+    reset: False
+    datadep:
+      - position 5
+      - position 20
+      - position 17
+    controldep:
+      - finished 15
+      - i 15
+  destination 23:
+    reset: False
+    datadep:
+      - destination 5
+    controldep:
+      - finished 15
+      - i 15
+  i 23:
+    reset: False
+    datadep:
+      - i 13
+    controldep:
+      - finished 15
+      - i 15
+  finished 25:
+    datadep:
+      - finished 8
+      - finished 25
+    controldep:
+      - position 23
+      - i 23
+      - destination 23
+  horses_running 26:
+    datadep:
+      - horses_running 6
+      - horses_running 26
+    controldep:
+      - position 23
+      - i 23
+      - destination 23

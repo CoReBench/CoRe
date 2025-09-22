@@ -1,0 +1,380 @@
+target_var: damage  88
+other_vars: 
+  - swaps 44
+  - swaps 89
+  - i 61
+early_return: 
+  - 24
+  - 26
+  - 30
+  - 37
+  - 59
+  - 91
+  - 98
+variables:
+  p 22:
+    datadep: Null
+    controldep: Null
+  d 22:
+    datadep: Null
+    controldep: Null
+  len 22:
+    datadep: Null
+    controldep: Null
+  len 24:
+    reset: False
+    datadep:
+      - len 22
+    controldep: Null
+  strength 44:
+    datadep: Null
+    controldep:
+      - len 24
+  damage 44:
+    datadep: Null
+    controldep:
+      - len 24
+  k 44:
+    datadep: Null
+    controldep:
+      - len 24
+  flag 44:
+    datadep: Null
+    controldep:
+      - len 24
+  i 46:
+    datadep:
+      - i 46
+    controldep:
+      - len 24
+      - i 46
+      - len 46
+  len 46:
+    reset: False
+    datadep:
+      - len 22
+    controldep:
+      - len 24
+      - i 46
+      - len 46
+  p 48:
+    reset: False
+    datadep:
+      - p 22
+    controldep:
+      - i 46
+      - len 46
+  i 48:
+    reset: False
+    datadep:
+      - i 46
+    controldep:
+      - i 46
+      - len 46
+  damage 50:
+    datadep:
+      - damage 50
+      - damage 44
+      - strength 44
+      - strength 55
+    controldep:
+      - p 48
+      - i 48
+  a 51:
+    datadep:
+      - strength 44
+      - strength 55
+      - k 44
+      - k 51
+      - k 56
+    controldep:
+      - p 48
+      - i 48
+  k 51:
+    datadep:
+      - k 44
+      - k 51
+      - k 56
+    controldep:
+      - p 48
+      - i 48
+  strength 55:
+    datadep:
+      - strength 44
+      - strength 55
+    controldep:
+      - p 48
+      - i 48
+  a 56:
+    datadep:
+      - strength 55
+      - k 44
+      - k 51
+      - k 56
+    controldep:
+      - p 48
+      - i 48
+  k 56:
+    datadep:
+      - k 44
+      - k 51
+      - k 56
+    controldep:
+      - p 48
+      - i 48
+  damage 59:
+    reset: False
+    datadep:
+      - damage 50
+      - damage 44
+    controldep:
+      - len 24
+  d 59:
+    reset: False
+    datadep:
+      - d 22
+    controldep:
+      - len 24
+  flag 62:
+    reset: False
+    datadep: 
+      - flag 44
+      - flag 64
+      - flag 74
+    controldep:
+      - damage 59
+      - d 59
+      - flag 62
+  flag 64:
+    datadep: Null
+    controldep:
+      - flag 62
+  i 65:
+    datadep:
+      - len 22
+    controldep:
+      - flag 62
+  damage 66:
+    reset: False
+    datadep:
+      - damage 50
+      - damage 44
+      - damage 77
+      - damage 88
+    controldep:
+      - flag 62
+      - damage 66
+      - d 66
+      - i 66
+      - i 91
+      - p 91
+  d 66:
+    reset: False
+    datadep:
+      - d 22
+    controldep:
+      - flag 62
+      - damage 66
+      - d 66
+      - i 66
+      - i 91
+      - p 91
+  i 66:
+    reset: False
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - flag 62
+      - damage 66
+      - d 66
+      - i 66
+      - i 91
+      - p 91
+  p 68:
+    reset: False
+    datadep:
+      - p 22
+      - p 75
+      - p 76
+    controldep:
+      - damage 66
+      - d 66
+      - i 66
+      - p 68
+      - i 68
+  i 68:
+    reset: False
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - damage 66
+      - d 66
+      - i 66
+      - p 68
+      - i 68
+  i 69:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - p 68
+      - i 68
+  p 70:
+    reset: False
+    datadep:
+      - p 22
+      - p 75
+      - p 76
+    controldep:
+      - damage 66
+      - d 66
+      - i 66
+  i 70:
+    reset: False
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - damage 66
+      - d 66
+      - i 66
+  i 71:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - p 70
+      - i 70
+  flag 74:
+    datadep: Null
+    controldep:
+      - p 70
+      - i 70
+  p 75:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - p 70
+      - i 70
+  p 76:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - p 70
+      - i 70
+  damage 77:
+    datadep:
+      - damage 50
+      - damage 44
+      - damage 77
+      - damage 88
+      - i 65
+      - i 69
+      - i 71
+      - a 51
+      - a 56
+      - a 80
+      - a 81
+      - a 85
+      - a 86
+    controldep:
+      - p 70
+      - i 70
+  i 78:
+    reset: False
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - p 70
+      - i 70
+  a 80:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - i 78
+  a 81:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - i 78
+  a 85:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+      - a 51
+      - a 56
+      - a 80
+      - a 81
+      - a 85
+      - a 86
+    controldep:
+      - i 78
+  a 86:
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+      - a 51
+      - a 56
+      - a 80
+      - a 81
+      - a 85
+      - a 86
+    controldep:
+      - i 78
+  damage 88:
+    datadep:
+      - damage 50
+      - damage 44
+      - damage 77
+      - damage 88
+      - i 65
+      - i 69
+      - i 71
+      - a 51
+      - a 56
+      - a 80
+      - a 81
+      - a 85
+      - a 86
+    controldep:
+      - p 70
+      - i 70
+  i 91:
+    reset: False
+    datadep:
+      - i 65
+      - i 69
+      - i 71
+    controldep:
+      - damage 66
+      - d 66
+      - i 66
+  p 91:
+    reset: False
+    datadep:
+      - p 22
+      - p 75
+      - p 76
+    controldep:
+      - damage 66
+      - d 66
+      - i 66

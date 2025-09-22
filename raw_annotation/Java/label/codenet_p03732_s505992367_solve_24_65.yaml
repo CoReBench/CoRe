@@ -1,0 +1,156 @@
+target_var: sum 50
+other_vars:
+  - testNumber 24
+  - W 26
+variables:
+  n 25:
+    datadep: Null
+    controldep: Null
+  lists 27:
+    datadep: Null
+    controldep: Null
+  i 28:
+    datadep:
+      - i 28
+    controldep:
+      - i 28
+  lists 29:
+    datadep:
+      - i 28
+    controldep:
+      - i 28
+  w1 31:
+    datadep: Null
+    controldep: Null
+  v1 32:
+    datadep: Null
+    controldep: Null
+  lists 33:
+    datadep:
+      - v1 32
+      - lists 29
+      - lists 27
+    controldep: Null
+  i 34:
+    datadep:
+      - i 34
+    controldep:
+      - i 34
+      - n 34
+  n 34:
+    reset: False
+    datadep:
+      - n 25
+    controldep:
+      - i 34
+      - n 34
+  w 35:
+    datadep: Null
+    controldep:
+      - i 34
+      - n 34
+  v 36:
+    datadep: Null
+    controldep:
+      - i 34
+      - n 34
+  lists 37:
+    datadep:
+      - w 35
+      - w1 31
+      - v 36
+      - lists 33
+      - lists 29 
+      - lists 27
+      - lists 37
+    controldep:
+      - i 34
+      - n 34
+  i 39:
+    datadep:
+      - i 39
+    controldep:
+      - i 39
+  lists 40:
+    datadep:
+      - lists 33
+      - lists 29 
+      - lists 27
+      - lists 37
+      - i 39
+    controldep:
+      - i 39
+  i 43:
+    datadep:
+      - i 43
+    controldep:
+      - i 43
+  m 44:
+    datadep:
+      - i 43
+      - lists 27
+      - lists 29
+      - lists 33
+      - lists 37
+      - lists 40
+    controldep:
+      - i 43
+  sum 45:
+    datadep:
+      - i 43
+      - m 44
+    controldep:
+      - i 43
+  j 46:
+    datadep:
+      - j 46
+    controldep:
+      - i 43
+      - j 46
+      - m 46
+  m 46:
+    reset: False
+    datadep:
+      - m 44
+    controldep:
+      - i 43
+      - j 46
+      - m 46
+  sum 47:
+    datadep:
+      - i 43
+      - j 46
+      - lists 33
+      - lists 29 
+      - lists 27
+      - lists 37
+      - lists 40
+    controldep:
+      - j 46
+      - m 46
+  j 49:
+    datadep:
+      - j 49
+    controldep:
+      - i 43
+      - j 49
+      - m 49
+  m 49:
+    reset: False
+    datadep:
+      - m 44
+    controldep:
+      - i 43
+      - j 49
+      - m 49
+  sum 50:
+    datadep:
+      - i 43
+      - j 49
+      - sum 45
+      - sum 47
+      - sum 50
+    controldep:
+      - j 49
+      - m 49
+  

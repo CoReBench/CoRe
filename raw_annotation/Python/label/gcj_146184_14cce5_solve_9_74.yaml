@@ -1,0 +1,320 @@
+target_var: a 55
+other_vars:
+  - botLow 12
+  - botLow 38
+early_return: 
+  - 20
+  - 28
+  - 34
+  - 39
+  - 41
+  - 42
+  - 44
+  - 48
+  - 49
+  - 51
+  - 57
+variables:
+  N 9:
+    datadep: Null
+    controldep: Null
+  M 9:
+    datadep: Null
+    controldep: Null
+  topHigh 10:
+    datadep: Null
+    controldep: Null
+  botHigh 11:
+    datadep: Null
+    controldep: Null
+  topLow 12:
+    datadep: Null
+    controldep: Null
+  N 14:
+    reset: False
+    datadep:
+      - N 9
+    controldep:
+      - N 14
+  i 14:
+    datadep:
+      - N 9
+    controldep:
+      - N 14
+  j 15:
+    datadep:
+      - N 9
+      - i 14
+    controldep:
+      - N 14
+      - N 15
+      - i 15
+      - wasNeg 28
+  N 15:
+    reset: False
+    datadep:
+      - N 9
+    controldep:
+      - N 14
+      - N 15
+      - i 15
+      - wasNeg 28
+  i 15:
+    reset: False
+    datadep:
+      - i 14
+    controldep:
+      - N 14
+      - N 15
+      - i 15
+      - wasNeg 28
+  a 16:
+    datadep:
+      - M 9
+      - i 14
+    controldep:
+      - N 15
+      - i 15
+  b 17:
+    datadep:
+      - M 9
+      - i 14
+    controldep:
+      - N 15
+      - i 15
+  c 18:
+    datadep:
+      - M 9
+      - j 15
+    controldep:
+      - N 15
+      - i 15
+  d 19:
+    datadep:
+      - M 9
+      - j 15
+    controldep:
+      - N 15
+      - i 15
+  a 20:
+    reset: False
+    datadep:
+      - a 16
+    controldep:
+      - N 15
+      - i 15
+  c 20:
+    reset: False
+    datadep:
+      - c 18
+    controldep:
+      - N 15
+      - i 15
+  b 20:
+    reset: False
+    datadep:
+      - b 17
+    controldep:
+      - N 15
+      - i 15
+  d 20:
+    reset: False
+    datadep:
+      - d 19
+    controldep:
+      - N 15
+      - i 15
+  top 22:
+    datadep:
+      - a 16
+      - c 18
+    controldep:
+      - a 20
+      - b 20
+      - c 20
+      - d 20
+  bot 23:
+    datadep:
+      - d 19
+      - b 17
+    controldep:
+      - a 20
+      - b 20
+      - c 20
+      - d 20
+  wasNeg 24:
+    datadep:
+      - top 22
+      - bot 23
+    controldep:
+      - a 20
+      - b 20
+      - c 20
+      - d 20
+  top 25:
+    datadep:
+      - top 22
+    controldep:
+      - a 20
+      - b 20
+      - c 20
+      - d 20
+  bot 26:
+    datadep:
+      - bot 23
+    controldep:
+      - a 20
+      - b 20
+      - c 20
+      - d 20
+  b 27:
+    reset: False
+    datadep:
+      - b 17
+    controldep:
+      - a 20
+      - b 20
+      - c 20
+      - d 20
+  d 27:
+    reset: False
+    datadep:
+      - d 19
+    controldep:
+      - a 20
+      - b 20
+      - c 20
+      - d 20
+  wasNeg 28:
+    reset: False
+    datadep:
+      - wasNeg 24
+    controldep:
+      - b 27
+      - d 27
+  topHigh 30:
+    reset: False
+    datadep:
+      - topHigh 10
+      - topHigh 31
+    controldep:
+      - wasNeg 28
+  top 30:
+    reset: False
+    datadep:
+      - top 25
+    controldep:
+      - wasNeg 28
+  botHigh 30:
+    reset: False
+    datadep:
+      - botHigh 11
+      - botHigh 32
+    controldep:
+      - wasNeg 28
+  bot 30:
+    reset: False
+    datadep:
+      - bot 26
+    controldep:
+      - wasNeg 28
+  topHigh 31:
+    datadep:
+      - top 25
+    controldep:
+      - topHigh 30
+      - top 30
+      - bot 30
+      - botHigh 30
+  botHigh 32:
+    datadep:
+      - bot 26
+    controldep:
+      - topHigh 30
+      - top 30
+      - bot 30
+      - botHigh 30
+  wasNeg 34:
+    reset: False
+    datadep:
+      - wasNeg 24
+    controldep:
+      - b 27
+      - d 27
+  topLow 36:
+    reset: False
+    datadep:
+      - topLow 12
+      - topLow 37
+    controldep:
+      - wasNeg 34
+  topHigh 36:
+    reset: False
+    datadep:
+      - topHigh 10
+      - topHigh 31
+    controldep:
+      - wasNeg 34
+  botHigh 36:
+    reset: False
+    datadep:
+      - botHigh 11
+      - botHigh 32
+    controldep:
+      - wasNeg 34
+  top 36:
+    reset: False
+    datadep:
+      - top 25
+    controldep:
+      - wasNeg 34
+  bot 36:
+    reset: False
+    datadep:
+      - bot 26
+    controldep:
+      - wasNeg 34
+  topLow 37:
+    datadep:
+      - top 25
+    controldep:
+      - topLow 36
+      - top 36
+      - bot 36
+      - botHigh 36
+      - topHigh 36
+  topLow 39:
+    reset: False
+    datadep:
+      - topLow 12
+      - topLow 37
+    controldep: Null
+  topHigh 39:
+    reset: False
+    datadep:
+      - topHigh 10
+      - topHigh 31
+    controldep: Null
+  topHigh 41:
+    reset: False
+    datadep:
+      - topHigh 10
+      - topHigh 31
+    controldep:
+      - topHigh 39
+      - topLow 39
+  topLow 48:
+    reset: False
+    datadep:
+      - topLow 12
+      - topLow 37
+    controldep:
+      - topHigh 41
+  a 55:
+    datadep:
+      - topHigh 10
+      - topHigh 31
+      - botHigh 11
+      - botHigh 32
+    controldep:
+      - topLow 48

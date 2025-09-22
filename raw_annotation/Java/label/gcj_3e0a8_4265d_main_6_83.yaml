@@ -1,0 +1,128 @@
+target_var: aww 70
+other_vars: 
+  - table 14
+  - table 15
+  - table 19
+  - table 23
+  - aww 33
+  - aww 40
+  - aww 36
+  - table 44
+  - tempmax 46
+  - max 48
+  - max 78
+  - tempmax 76
+variables: 
+  t 9:
+    datadep: Null
+    controldep: Null
+  iii 10:
+    datadep:
+      - iii 10
+    controldep:
+      - iii 10
+      - t 10
+  t 10:
+    reset: False
+    datadep:
+      - t 9
+    controldep:
+      - iii 10
+      - t 10
+  n 12:
+    datadep: Null
+    controldep:
+      - iii 10
+      - t 10
+  aw 13:
+    datadep:
+      - n 12
+    controldep:
+      - iii 10
+      - t 10
+  i 16:
+    datadep:
+      - i 16
+    controldep:
+      - iii 10
+      - t 10
+      - i 16
+      - n 16
+  n 16:
+    reset: False
+    datadep:
+      - n 12
+    controldep:
+      - iii 10
+      - t 10
+      - i 16
+      - n 16
+  aw 18:
+    datadep:
+      - i 16
+    controldep:
+      - i 16
+      - n 16
+  i 50:
+    datadep:
+      - i 50
+    controldep:
+      - iii 10
+      - t 10
+      - i 50
+      - n 50
+  n 50:
+    reset: False
+    datadep:
+      - n 12
+    controldep:
+      - iii 10
+      - t 10
+      - i 50
+      - n 50
+  j 52:
+    datadep:
+      - j 52
+      - i 50
+    controldep:
+      - i 50
+      - n 50
+      - j 52
+      - n 52
+  n 52:
+    reset: False
+    datadep:
+      - n 12
+    controldep:
+      - i 50
+      - n 50
+      - j 52
+      - n 52
+  ii 68:
+    datadep:
+      - ii 68
+      - j 52
+    controldep:
+      - j 52
+      - n 52
+      - ii 68
+      - n 68
+  n 68:
+    reset: False
+    datadep:
+      - n 12
+    controldep:
+      - j 52
+      - n 52
+      - ii 68
+      - n 68
+  aww 70:
+    datadep:
+      - aw 13
+      - aw 18
+      - ii 68
+    controldep:
+      - ii 68
+      - n 68
+
+  

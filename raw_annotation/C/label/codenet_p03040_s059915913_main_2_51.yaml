@@ -1,0 +1,59 @@
+target_var: ans 41
+other_vars:
+  - m 40
+  - a 28
+  - a 32
+  - a 25
+  - a 19
+  - j 22
+early_return: 
+  - 24
+variables:
+  ans 41:
+    datadep:
+      - b 36
+      - b 7
+    controldep:
+      - x 15
+  b 36:
+    datadep: 
+      - b 36
+      - b 7
+      - z 17
+    controldep:
+      - x 15
+  z 17:
+    datadep: Null
+    controldep:
+      - x 15
+  b 7:
+    datadep: Null
+    controldep: Null
+  q 5:
+    datadep: Null
+    controldep: Null
+  q 12:
+    reset: False
+    datadep:
+      - q 5
+    controldep:
+      - i 12
+      - q 12
+  x 15:
+    reset: False
+    datadep:
+      - x 14
+    controldep:
+      - i 12
+      - q 12
+  x 14:
+    datadep: Null
+    controldep:
+      - i 12
+      - q 12
+  i 12:
+    datadep:
+      - i 12
+    controldep:
+      - i 12
+      - q 12

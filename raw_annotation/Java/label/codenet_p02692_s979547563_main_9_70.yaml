@@ -1,0 +1,320 @@
+target_var: c 63
+other_vars:
+  - answer 15
+  - answer 25
+  - answer 29
+  - answer 41
+  - answer 45
+  - answer 57
+  - answer 61
+early_return: 
+  - 18
+  - 20
+  - 36
+  - 52
+variables: 
+  c 63:
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - a 56
+      - c 56
+  c 14:
+    datadep: Null
+    controldep: Null
+  c 43:
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - b 40
+      - c 40
+  c 47:
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - b 40
+      - c 40
+  c 59:
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - a 56
+      - c 56
+  c 56:
+    reset: False
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - a 52
+      - c 52
+  a 56:
+    reset: False
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - a 52
+      - c 52
+  a 52:
+    reset: False
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - Null 35
+  c 52:
+    reset: False
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - Null 35
+  b 40:
+    reset: False
+    datadep: 
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - b 36
+      - c 36
+  c 40:
+    reset: False
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - b 36
+      - c 36
+  b 36:
+    reset: False
+    datadep:
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - Null 35
+  c 36:
+    reset: False
+    datadep:
+      - c 14
+      - c 43
+      - c 47
+      - c 59
+      - c 63
+    controldep:
+      - Null 35
+  b 42:
+    datadep:
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - b 40
+      - c 40
+  b 46:
+    datadep:
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - b 40
+      - c 40
+  b 27:
+    datadep:
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - a 24
+      - b 24
+  b 31:
+    datadep:
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - a 24
+      - b 24
+  b 13:
+    datadep: Null
+    controldep: Null
+  a 12:
+    datadep: Null
+    controldep: Null
+  a 20:
+    reset: False
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - Null 19
+  b 20:
+    reset: False
+    datadep:
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - Null 19
+  a 24:
+    reset: False
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - a 20
+      - b 20
+  b 24:
+    reset: False
+    datadep:
+      - b 13
+      - b 27
+      - b 31
+      - b 42
+      - b 46
+    controldep:
+      - a 20
+      - b 20
+  a 26:
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - a 24
+      - b 24
+  a 30:
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - a 24
+      - b 24
+  s 18:
+    reset: False
+    datadep: 
+      - s 17
+    controldep:
+      - i 16
+      - n 16
+  s 17:
+    datadep: Null
+    controldep:
+      - i 16
+      - n 16
+  i 16:
+    datadep:
+      - i 16
+    controldep:
+      - a 52
+      - c 52
+      - b 36
+      - c 36
+      - a 20
+      - b 20
+      - i 16
+      - n 16
+  n 16:
+    reset: False
+    datadep:
+      - n 11
+    controldep:
+      - a 52
+      - c 52
+      - b 36
+      - c 36
+      - a 20
+      - b 20
+      - i 16
+      - n 16
+  n 11:
+    datadep: Null
+    controldep: Null
+  a 58:
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - a 56
+      - c 56
+  a 62:
+    datadep:
+      - a 58
+      - a 62
+      - a 26
+      - a 30
+      - a 12
+    controldep:
+      - a 56
+      - c 56
+  Null 35:
+    reset: False
+    datadep: Null
+    controldep:
+      - Null 19
+  Null 19:
+    reset: False
+    datadep: Null
+    controldep:
+      - s 18

@@ -1,0 +1,83 @@
+target_var: cut 69
+other_vars:
+  - ansC 13
+  - ansC 14
+  - cut 9
+  - cut 12
+  - cut 17
+  - cut 20
+  - cut 74
+  - cut 77
+  - ansC 75
+  - ansC 70
+  - ans 72
+  - cut 55
+  - cut 58
+  - ans 61
+  - ansC 52
+  - j 44
+  - j 25
+variables: 
+  cut 69:
+    datadep:
+      - L2 68
+    controldep:
+      - j 65
+  cut 66:
+    datadep:
+      - L 2
+    controldep:
+      - j 65
+  L2 68:
+    datadep:
+      - L 2
+      - cut 66
+    controldep:
+      - j 65
+  L 2:
+    datadep: Null 
+    controldep: Null
+  i 4:
+    datadep: Null
+    controldep:
+      - Null 4
+  Null 4:
+    reset: False
+    datadep: Null
+    controldep: 
+      - Null 4
+  i 5:
+    reset: False
+    datadep:
+      - i 4
+    controldep:
+      - Null 4
+  i 24:
+    reset: False
+    datadep:
+      - i 4
+    controldep:
+      - i 5
+  i 43:
+    reset: False
+    datadep:
+      - i 4
+    controldep:
+      - i 24
+  j 63:
+    datadep: Null
+    controldep:
+      - i 43
+      - Null 63
+  Null 63:
+    reset: False
+    datadep: Null
+    controldep:
+      - i 43
+      - Null 63
+  j 65:
+    reset: False
+    datadep:
+      - j 63
+    controldep:
+      - Null 63

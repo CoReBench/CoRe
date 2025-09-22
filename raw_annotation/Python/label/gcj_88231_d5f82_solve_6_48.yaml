@@ -1,0 +1,285 @@
+target_var: A_digits 31
+other_vars:
+  - N 7
+  - B_digits 13
+  - B_digits 20
+  - B_digits 23
+  - B_digits 26
+  - B_digits 29
+  - B_digits 32
+  - B_digits 35
+  - B_digits 42
+  - B_digits 45
+variables:
+  n 6:
+    datadep: Null
+    controldep: Null
+  digits 8:
+    datadep: Null
+    controldep: Null
+  n 9:
+    reset: False
+    datadep:
+      - n 6
+      - n 11
+    controldep:
+      - n 9
+  digits 10:
+    datadep:
+      - n 6
+      - n 11
+      - digits 8
+      - digits 10
+    controldep:
+      - n 9
+  n 11:
+    datadep:
+      - n 6
+      - n 11
+    controldep:
+      - n 9
+  A_digits 12:
+    datadep: Null
+    controldep: Null
+  carry 14:
+    datadep: Null
+    controldep: Null
+  i 15:
+    datadep:
+      - digits 8
+      - digits 10
+    controldep:
+      - digits 15
+  d 15:
+    datadep:
+      - digits 8
+      - digits 10
+    controldep:
+      - digits 15
+  digits 15:
+    reset: False
+    datadep:
+      - digits 8
+      - digits 10
+    controldep:
+      - digits 15
+  d 16:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - digits 15
+  i 17:
+    reset: False
+    datadep:
+      - i 15
+    controldep:
+      - d 16
+  digits 17:
+    reset: False
+    datadep:
+      - digits 8
+      - digits 10
+    controldep:
+      - d 16
+  carry 18:
+    datadep: Null
+    controldep:
+      - i 17
+      - digits 17
+  A_digits 19:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - i 17
+      - digits 17
+  A_digits 22:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - i 17
+      - digits 17
+  d 24:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - d 16
+  A_digits 25:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - d 24
+  d 27:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - d 24
+  A_digits 28:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - d 27
+  d 30:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - d 27
+  carry 30:
+    reset: False
+    datadep:
+      - carry 14
+      - carry 18
+      - carry 36
+    controldep:
+      - d 27
+  A_digits 31:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - d 30
+      - carry 30
+  d 33:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - d 30
+      - carry 30
+  carry 33:
+    reset: False
+    datadep:
+      - carry 14
+      - carry 18
+      - carry 36
+    controldep:
+      - d 30
+      - carry 30
+  A_digits 34:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - d 33
+      - carry 33
+  carry 36:
+    datadep: Null
+    controldep:
+      - d 33
+      - carry 33
+  d 37:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - d 33
+      - carry 33
+  A_digits 38:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - d 37
+  d 40:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - d 37
+  A_digits 41:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - d 40
+  d 43:
+    reset: False
+    datadep:
+      - d 15
+    controldep:
+      - d 40
+  A_digits 44:
+    datadep:
+      - A_digits 12
+      - A_digits 19
+      - A_digits 22
+      - A_digits 25
+      - A_digits 28
+      - A_digits 31
+      - A_digits 34
+      - A_digits 38
+      - A_digits 41
+      - A_digits 44
+    controldep:
+      - d 43

@@ -1,0 +1,197 @@
+target_var: askLast 70
+other_vars: 
+  - sol 18
+  - c 30
+  - n 32
+  - curr 34
+  - curr 48
+  - curr 49
+  - sol 38
+  - c 60
+  - curr 64
+  - n 62
+  - sol 75
+early_return: 
+  - 74
+variables:
+  chars 19:
+    datadep: Null
+    controldep: Null
+  chars 20:
+    datadep: 
+      - chars 19
+    controldep: Null
+  chars 21:
+    datadep:
+      - chars 20
+    controldep: Null
+  chars 22:
+    datadep:
+      - chars 21
+    controldep: Null
+  chars 23:
+    datadep:
+      - chars 22
+    controldep: Null
+  chars 24:
+    datadep:
+      - chars 23
+    controldep: Null
+  occ5 25:
+    datadep: Null
+    controldep: Null
+  c 26:
+    datadep:
+      - chars 24
+    controldep:
+      - chars 26
+  chars 26:
+    reset: False
+    datadep:
+      - chars 24
+    controldep:
+      - chars 26
+  occ5 27:
+    datadep:
+      - c 26
+      - occ5 25
+      - occ5 27
+    controldep:
+      - chars 26
+  occ5 36:
+    reset: False
+    datadep:
+      - occ5 25
+      - occ5 27
+    controldep:
+      - occ5 36
+  e5 36:
+    datadep:
+      - occ5 25
+      - occ5 27
+    controldep:
+      - occ5 36
+  e5 37:
+    reset: False
+    datadep:
+      - e5 36
+    controldep:
+      - occ5 36
+  chars 39:
+    datadep:
+      - e5 36
+      - chars 39
+      - chars 24
+      - chars 54
+      - chars 68
+    controldep:
+      - e5 37
+  occ4 40:
+    datadep: Null
+    controldep:
+      - e5 37
+  c 41:
+    datadep:
+      - chars 39
+    controldep:
+      - e5 37
+      - chars 41
+  chars 41:
+    reset: False
+    datadep:
+      - chars 39
+    controldep:
+      - e5 37
+      - chars 41
+  occ4 42:
+    datadep:
+      - occ4 40
+      - occ4 42
+      - c 41
+    controldep:
+      - chars 41
+  occ4 51:
+    reset: False
+    datadep:
+      - occ4 40
+      - occ4 42
+    controldep:
+      - e5 37
+      - occ4 51
+  e4 51:
+    datadep:
+      - occ4 40
+      - occ4 42
+    controldep:
+      - e5 37
+      - occ4 51
+  e4 52:
+    reset: False
+    datadep:
+      - e4 51
+    controldep:
+      - occ4 51
+  chars 54:
+    datadep:
+      - e4 51
+      - chars 39
+      - chars 54
+      - chars 68
+    controldep:
+      - e4 52
+  occ3 55:
+    datadep: Null
+    controldep:
+      - e4 52
+  c 56:
+    datadep:
+      - chars 54
+    controldep:
+      - e4 52
+      - chars 56
+  chars 56:
+    reset: False
+    datadep:
+      - chars 54
+    controldep:
+      - e4 52
+      - chars 56
+  occ3 57:
+    datadep:
+      - occ3 55
+      - occ3 57
+      - c 56
+    controldep:
+      - chars 56
+  occ3 66:
+    reset: False
+    datadep:
+      - occ3 55
+      - occ3 57
+    controldep:
+      - e4 52
+      - occ3 66
+  e 66:
+    datadep:
+      - occ3 55
+      - occ3 57
+    controldep:
+      - e4 52
+      - occ3 66
+  e 67:
+    reset: False
+    datadep:
+      - e 66
+    controldep:
+      - occ3 66
+  chars 68:
+    datadep:
+      - chars 54
+      - chars 68
+    controldep:
+      - e 67
+  askLast 70:
+    datadep:
+      - e 66
+    controldep:
+      - e 67

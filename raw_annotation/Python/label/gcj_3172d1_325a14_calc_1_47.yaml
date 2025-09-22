@@ -1,0 +1,289 @@
+target_var: tmp 31
+other_vars:
+  - j 10
+  - remain_d 13
+  - per_cut 15
+  - cut 9
+  - cut 19
+  - xx 20
+  - xx 22
+  - ans 23
+  - ans 3
+  - ret 4
+  - k 32
+  - k 16
+  - cut 34
+  - xx 35
+  - xx 37
+  - ans 38
+  - n 1
+early_return: 
+  - 24
+  - 26
+  - 39
+  - 41
+variables:
+  d 1:
+    datadep: Null
+    controldep: Null
+  a 1:
+    datadep: Null
+    controldep: Null
+  b 1:
+    datadep: Null
+    controldep: Null
+  ct 1:
+    datadep: Null
+    controldep: Null
+  n 2:
+    datadep:  
+      - a 1
+    controldep: Null
+  n 5:
+    reset: False
+    datadep:
+      - n 2
+    controldep:
+      - n 5
+  i 5:
+    datadep:
+      - n 2
+    controldep:
+      - n 5
+  x 6:
+    datadep:
+      - i 5
+      - a 1
+    controldep:
+      - n 5
+  y 6:
+    datadep:
+      - i 5
+      - b 1
+    controldep:
+      - n 5
+  cur_d 7:
+    datadep: Null
+    controldep:
+      - n 5
+  p 8:
+    datadep: Null
+    controldep:
+      - n 5
+  d 10:
+    reset: False
+    datadep:
+      - d 1
+    controldep:
+      - n 5
+      - d 10
+      - cur_d 26
+      - d 26
+  p 11:
+    datadep:
+      - p 8
+      - p 11
+      - x 6
+    controldep:
+      - d 10
+  tmp 12:
+    datadep: 
+      - ct 1
+      - p 11
+    controldep:
+      - d 10
+  per_d 14:
+    datadep:
+      - p 11
+      - x 6
+    controldep:
+      - d 10
+  tmp 16:
+    reset: False
+    datadep:
+      - tmp 12
+    controldep:
+      - d 10
+      - tmp 16
+      - per_d 16
+      - cur_d 24
+      - d 24
+  per_d 16:
+    reset: False
+    datadep:
+      - per_d 14
+    controldep:
+      - d 10
+      - tmp 16
+      - per_d 16
+      - cur_d 24
+      - d 24
+  cur_d 17:
+    datadep:
+      - cur_d 7
+      - cur_d 17
+    controldep:
+      - tmp 16
+      - per_d 16
+  cur_d 24:
+    reset: False
+    datadep:
+      - cur_d 17
+    controldep:
+      - tmp 16
+      - per_d 16
+  d 24:
+    reset: False
+    datadep:
+      - d 1
+    controldep:
+      - tmp 16
+      - per_d 16
+  cur_d 26:
+    reset: False
+    datadep:
+      - cur_d 7
+      - cur_d 17
+    controldep:
+      - d 10
+  d 26:
+    reset: False
+    datadep:
+      - d 1
+    controldep:
+      - d 10
+  cur_d 28:
+    reset: False
+    datadep:
+      - cur_d 7
+      - cur_d 17
+      - cur_d 33
+    controldep:
+      - n 5
+  d 28:
+    reset: False
+    datadep:
+      - d 1
+    controldep:
+      - n 5
+  j 29:
+    datadep:
+      - n 2
+      - i 5
+    controldep:
+      - cur_d 28
+      - d 28
+      - n 29
+      - i 29
+      - cur_d 41
+      - d 41
+  n 29:
+    reset: False
+    datadep:
+      - n 2
+    controldep:
+      - cur_d 28
+      - d 28
+      - n 29
+      - i 29
+      - cur_d 41
+      - d 41
+  i 29:
+    reset: False
+    datadep:
+      - i 5
+    controldep:
+      - cur_d 28
+      - d 28
+      - n 29
+      - i 29
+      - cur_d 41
+      - d 41
+  a 30:
+    reset: False
+    datadep:
+      - a 1
+    controldep:
+      - n 29
+      - i 29
+  j 30:
+    reset: False
+    datadep:
+      - j 29
+    controldep:
+      - n 29
+      - i 29
+  p 30:
+    reset: False
+    datadep:
+      - p 11
+      - p 8
+    controldep:
+      - n 29
+      - i 29
+  x 30:
+    reset: False
+    datadep:
+      - x 6
+    controldep:
+      - n 29
+      - i 29
+  tmp 31:
+    datadep:
+      - x 6
+      - y 6
+      - a 1
+      - j 29
+    controldep:
+      - a 30
+      - j 30
+      - p 30
+      - x 30
+  tmp 32:
+    reset: False
+    datadep:
+      - tmp 31
+    controldep:
+      - a 30
+      - j 30
+      - p 30
+      - x 30
+      - tmp 32
+      - cur_d 39
+      - d 39
+  cur_d 33:
+    datadep:
+      - cur_d 7
+      - cur_d 17
+      - cur_d 33
+    controldep:
+      - tmp 32
+  cur_d 39:
+    reset: False
+    datadep:
+      - cur_d 33
+    controldep:
+      - tmp 32
+  d 39:
+    reset: False
+    datadep:
+      - d 1
+    controldep:
+      - tmp 32
+  cur_d 41:
+    reset: False
+    datadep:
+      - cur_d 7
+      - cur_d 17
+      - cur_d 33
+    controldep:
+      - n 29
+      - i 29
+  d 41:
+    reset: False
+    datadep:
+      - d 1
+    controldep:
+      - n 29
+      - i 29
+

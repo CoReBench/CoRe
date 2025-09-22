@@ -1,0 +1,70 @@
+target_var: num 34
+other_vars:
+  - m 31
+  - ind 32
+  - ind 18
+  - m 17
+  - res 15
+variables:
+  i 19:
+    datadep:
+      - i 19
+    controldep:
+      - i 19
+  n 22:
+    datadep: Null
+    controldep:
+      - i 19
+  p 23:
+    datadep: Null
+    controldep:
+      - i 19
+  k 24:
+    datadep:
+      - k 24
+    controldep:
+      - i 19
+      - k 24
+      - n 24
+  n 24:
+    reset: False
+    datadep:
+      - n 22
+    controldep:
+      - i 19
+      - k 24
+      - n 24
+  t 25:
+    datadep: Null
+    controldep:
+      - k 24
+      - n 24
+  t 26:
+    reset: False
+    datadep:
+      - t 25
+    controldep:
+      - k 24
+      - n 24
+  p 26:
+    reset: False
+    datadep:
+      - p 23
+      - p 27
+    controldep:
+      - k 24
+      - n 24
+  p 27:
+    datadep:
+      - p 23
+      - p 27
+    controldep:
+      - t 26
+      - p 26
+  num 34:
+    datadep:
+      - p 23
+      - p 27
+      - i 19
+    controldep:
+      - i 19

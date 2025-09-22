@@ -1,0 +1,180 @@
+target_var: ans 83
+other_vars:
+  - orig 25
+  - poss 26
+  - poss 29
+  - orig 31
+  - ans 38
+  - ans 41
+  - ans 48
+  - orig 62
+  - poss 63
+  - poss 66
+early_return: 
+  - 40
+  - 47
+variables: 
+  ans 83:
+    datadep:
+      - ans 73
+      - ans 76
+      - ans 83
+    controldep:
+      - in2 82
+      - i 82
+      - t 82
+      - in1 82
+  ans 73:
+    datadep: Null
+    controldep:
+      - s 55
+      - t 55
+  ans 76:
+    datadep:
+      - ans 73
+      - ans 76
+    controldep:
+      - in2 75
+      - i 75
+      - t 75
+      - in1 75
+  t 24:
+    reset: False
+    datadep:
+      - t 22
+    controldep: Null
+  s 24:
+    reset: False
+    datadep:
+      - s 23
+    controldep: Null
+  s 55:
+    reset: False
+    datadep:
+      - s 23
+    controldep:
+      - s 24
+      - t 24
+  t 55:
+    reset: False
+    datadep:
+      - t 22
+    controldep:
+      - s 24
+      - t 24
+  t 22:
+    datadep:
+      - in1 20
+    controldep: Null
+  s 23:
+    datadep: 
+      - in2 21
+    controldep: Null
+  in1 20:
+    datadep: Null
+    controldep: Null
+  in2 21:
+    datadep: Null
+    controldep: Null
+  s 74:
+    reset: False
+    datadep:
+      - s 23
+    controldep:
+      - s 55
+      - t 55
+      - in2 75
+      - i 75
+      - t 75
+      - in1 75
+  t 74:
+    reset: False
+    datadep:
+      - t 22
+    controldep:
+      - s 55
+      - t 55
+      - in2 75
+      - i 75
+      - t 75
+      - in1 75
+  i 74:
+    datadep:
+      - i 74
+      - t 22
+    controldep:
+      - s 55
+      - t 55
+      - in2 75
+      - i 75
+      - t 75
+      - in1 75
+  in2 75:
+    reset: False
+    datadep:
+      - in2 21
+    controldep:
+      - i 74
+      - s 74
+      - t 74
+  i 75:
+    reset: False
+    datadep:
+      - i 74
+    controldep:
+      - i 74
+      - s 74
+      - t 74
+  t 75:
+    reset: False
+    datadep:
+      - t 22
+    controldep:
+      - i 74
+      - s 74
+      - t 74
+  in1 75:
+    reset: False
+    datadep:
+      - in1 20
+    controldep:
+      - i 74
+      - s 74
+      - t 74
+  i 81:
+    datadep:
+      - i 81
+      - t 22
+      - s 23
+    controldep:
+      - s 55
+      - t 55
+      - in2 82
+      - in1 82
+      - i 82
+      - t 82
+  in2 82:
+    reset: False
+    datadep:
+      - in2 21
+    controldep:
+      - i 81
+  i 82:
+    reset: False
+    datadep:
+      - i 81
+    controldep:
+      - i 81
+  t 82:
+    reset: False
+    datadep:
+      - t 22
+    controldep:
+      - i 81
+  in1 82:
+    reset: False
+    datadep:
+      - in1 20
+    controldep:
+      - i 81
+  

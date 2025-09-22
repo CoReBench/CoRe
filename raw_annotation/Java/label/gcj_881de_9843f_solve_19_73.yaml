@@ -1,0 +1,167 @@
+target_var: val 48
+other_vars:
+  - j 29
+  - k 28
+  - first 41
+early_return: 
+  - 69
+variables:
+  val 48:
+    datadep:
+      - sb 44
+      - sb 46
+    controldep:
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+  T 20:
+    datadep: Null
+    controldep: Null
+  t 21:
+    datadep:
+      - t 21
+    controldep:
+      - Null 69
+  T 21:
+    reset: False
+    datadep:
+      - T 20
+    controldep:
+      - Null 69
+  N 23:
+    datadep: Null
+    controldep:
+      - t 21
+      - T 21
+  B 24:
+    datadep: Null
+    controldep:
+      - t 21
+      - T 21
+  F 25:
+    datadep: Null
+    controldep:
+      - t 21
+      - T 21
+  reply 26:
+    datadep: Null
+    controldep:
+      - t 21
+      - T 21
+  i 27:
+    datadep:
+      - i 27
+    controldep:
+      - t 21
+      - T 21
+      - i 27
+      - F 27
+  F 27:
+    reset: False
+    datadep:
+      - F 25
+    controldep:
+      - t 21
+      - T 21
+      - i 27
+      - F 27
+  reply 38:
+    datadep:  
+      - reply 38
+      - reply 26
+    controldep:
+      - i 27
+      - F 27
+  p 40:
+    datadep: Null
+    controldep:
+      - t 21
+      - T 21
+  i 43:
+    datadep:
+      - i 43
+    controldep:
+      - t 21
+      - T 21
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+  N 43:
+    reset: False
+    datadep:
+      - N 23
+    controldep:
+      - t 21
+      - T 21
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+  B 43:
+    reset: False
+    datadep:
+      - B 24
+    controldep:
+      - t 21
+      - T 21
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+  p 43:
+    reset: False
+    datadep:
+      - p 40
+      - p 58
+    controldep:
+      - t 21
+      - T 21
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+  sb 44:
+    datadep: Null
+    controldep:
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+  j 45:
+    datadep:
+      - j 45
+      - F 25
+    controldep:
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+      - j 45
+  sb 46:
+    datadep:
+      - reply 26
+      - reply 38
+      - j 45
+      - p 40
+      - p 58
+      - sb 44
+      - sb 46
+    controldep:
+      - j 45
+  p 58:
+    datadep:
+      - p 40
+      - p 58
+    controldep:
+      - i 43
+      - p 43
+      - B 43
+      - N 43
+  Null 69:
+    reset: False
+    datadep: Null
+    controldep:
+      - t 21
+      - T 21

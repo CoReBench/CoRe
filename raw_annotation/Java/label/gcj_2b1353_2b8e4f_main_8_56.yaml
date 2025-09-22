@@ -1,0 +1,138 @@
+target_var: depth 52
+other_vars: 
+  - position 18
+  - position 33
+  - position 38
+  - position 49
+  - lines 20
+early_return: 
+  - 22
+variables:
+  depth 52:
+    datadep:
+      - depth 17
+      - depth 42
+      - depth 52
+    controldep:
+      - rest 44
+  rest 44:
+    reset: False
+    datadep:
+      - rest 16
+      - rest 27
+      - rest 40
+      - rest 51
+    controldep:
+      - tt 12
+      - T 12
+      - rest 44
+  rest 51:
+    datadep:
+      - rest 16
+      - rest 27
+      - rest 40
+      - rest 51
+    controldep:
+      - rest 44
+  rest 16:
+    datadep:
+      - N 13
+    controldep:
+      - tt 12
+      - T 12
+  N 13:
+    datadep: Null
+    controldep:
+      - tt 12
+      - T 12
+  Null 19:
+    reset: False
+    datadep: Null
+    controldep:
+      - tt 12
+      - T 12
+      - Null 19
+      - rest 22
+      - line_sum 22
+  line_sum 21:
+    datadep:
+      - depth 17
+      - depth 42
+    controldep:
+      - Null 19
+  depth 17: 
+    datadep: Null
+    controldep:
+      - tt 12
+      - T 12
+  rest 22:
+    reset: False
+    datadep:
+      - rest 16
+      - rest 27
+      - rest 40
+    controldep:
+      - Null 19
+  line_sum 22:
+    reset: False
+    datadep:
+      - line_sum 21
+    controldep:
+      - Null 19
+  line_sum 25:
+    reset: False
+    datadep:
+      - line_sum 21
+    controldep:
+      - rest 22
+      - line_sum 22
+  rest 25:
+    reset: False
+    datadep:
+      - rest 16
+      - rest 27
+      - rest 40
+    controldep:
+      - rest 22
+      - line_sum 22
+  rest 27:
+    datadep:
+      - rest 16
+      - rest 27
+      - rest 40
+    controldep:
+      - rest 25
+      - line_sum 25
+  rest 40:
+    datadep:
+      - rest 16
+      - rest 27
+      - rest 40
+      - line_sum 21
+    controldep:
+      - rest 25
+      - line_sum 25
+  depth 42:
+    datadep:
+      - depth 17
+      - depth 42
+    controldep:
+      - rest 22
+      - line_sum 22
+  T 10:
+    datadep: Null
+    controldep: Null
+  tt 12:
+    datadep:
+      - tt 12
+    controldep:
+      - tt 12
+      - T 12
+  T 12:
+    reset: False
+    datadep:
+      - T 10
+    controldep:
+      - tt 12
+      - T 12
+  

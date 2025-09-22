@@ -1,0 +1,371 @@
+target_var: dt 80
+other_vars: 
+  - centerX 11
+  - centerY 12
+  - centerZ 13
+  - cX 39
+  - cY 40
+  - cZ 41
+  - cX 43
+  - cY 44
+  - cZ 34
+  - cXn 83
+  - cXn 87
+  - cYn 84
+  - cYn 88
+  - cZn 85
+  - cZn 89
+  - isFound 18
+early_return: 
+  - 47
+  - 82
+  - 98
+variables: 
+  a 10:
+    datadep: Null
+    controldep: Null
+  x0 14:
+    datadep: Null
+    controldep: Null
+  y0 15:
+    datadep: Null
+    controldep: Null
+  z0 16:
+    datadep: Null
+    controldep: Null
+  i 17:
+    datadep: Null
+    controldep: Null
+  i 19:
+    reset: False
+    datadep:
+      - i 17
+      - i 99
+    controldep:
+      - isFound 98
+  isFound 20:
+    datadep: Null
+    controldep:
+      - i 19
+  rad 21:
+    datadep:
+      - i 17
+      - i 99
+    controldep:
+      - i 19
+  xr 22:
+    datadep: Null
+    controldep:
+      - i 19
+  yr 23:
+    datadep: Null
+    controldep:
+      - i 19
+  zr 24:
+    datadep: Null
+    controldep:
+      - i 19
+  j 25:
+    datadep: 
+      - j 25
+    controldep:
+      - i 19
+      - j 25
+  xr 26:
+    datadep:
+      - j 25
+      - x0 14
+      - rad 21
+      - y0 15
+    controldep:
+      - j 25
+  yr 27:
+    datadep:
+      - j 25
+      - x0 14
+      - rad 21
+      - y0 15
+    controldep:
+      - j 25
+  zr 28:
+    datadep:
+      - z0 16
+      - j 25
+    controldep:
+      - j 25
+  x1 30:
+    datadep: Null
+    controldep:
+      - i 19
+  y1 30:
+    datadep: Null
+    controldep:
+      - i 19
+  x2 30:
+    datadep: Null
+    controldep:
+      - i 19
+  y2 30:
+    datadep: Null
+    controldep:
+      - i 19
+  j 31:
+    datadep:
+      - j 31
+    controldep:
+      - i 19
+      - j 31
+  x1 32:
+    datadep:
+      - x1 30
+      - x1 32
+      - xr 22
+      - xr 26
+      - j 31
+    controldep:
+      - j 31
+  x2 33:
+    datadep:
+      - x2 30
+      - x2 33
+      - xr 22
+      - xr 26
+      - j 31
+    controldep:
+      - j 31
+  y1 34:
+    datadep:
+      - y1 30
+      - y1 34
+      - zr 28
+      - zr 24
+      - j 31
+    controldep:
+      - j 31
+  y2 35:
+    datadep:
+      - y2 30
+      - y2 35
+      - zr 28
+      - zr 24
+      - j 31
+    controldep:
+      - j 31
+  dt 37:
+    datadep:
+      - x1 30
+      - x2 30
+      - y1 30
+      - y2 30
+      - x1 32
+      - x2 33
+      - y1 34
+      - y2 35
+    controldep:
+      - i 19
+  diff 38:
+    datadep:
+      - a 10
+      - dt 37
+    controldep:
+      - i 19
+  diff 47:
+    reset: False
+    datadep:
+      - diff 38
+    controldep:
+      - i 19
+  xr0 54:
+    datadep: Null
+    controldep:
+      - diff 47
+  yr0 55:
+    datadep: Null
+    controldep:
+      - diff 47
+  zr0 56:
+    datadep: Null
+    controldep:
+      - diff 47
+  j 57:
+    datadep: 
+      - j 57
+    controldep:
+      - diff 47
+      - j 57
+  xr0 58:
+    datadep:
+      - xr 22
+      - xr 26
+      - j 57
+    controldep:
+      - j 57
+  yr0 59:
+    datadep:
+      - yr 23
+      - yr 27
+      - j 57
+    controldep:
+      - j 57
+  zr0 60:
+    datadep:
+      - zr 24
+      - zr 28
+      - j 57
+    controldep:
+      - j 57
+  ii 62:
+    datadep: Null
+    controldep:
+      - diff 47
+  ii 63:
+    reset: False
+    datadep:
+      - ii 62
+      - ii 95
+    controldep:
+      - diff 47
+      - diff 82
+  isFound 64:
+    datadep: Null
+    controldep:
+      - ii 63
+  rad0 65:
+    datadep:
+      - ii 62
+      - ii 95
+    controldep:
+      - ii 63
+  j 66:
+    datadep:
+      - j 66
+    controldep:
+      - ii 63
+      - j 66
+  xr 67:
+    datadep:
+      - xr0 54
+      - xr0 58
+      - j 66
+    controldep:
+      - j 66
+  zr 68:
+    datadep:
+      - yr0 55
+      - yr0 59
+      - rad0 65
+      - zr0 56
+      - zr0 60
+      - j 66
+    controldep:
+      - j 66
+  x1 70:
+    datadep: Null
+    controldep:
+      - ii 63
+  y1 71:
+    datadep: Null
+    controldep:
+      - ii 63
+  x2 72:
+    datadep: Null
+    controldep:
+      - ii 63
+  y2 73:
+    datadep: Null
+    controldep:
+      - ii 63
+  j 74:
+    datadep:
+      - j 74
+    controldep:
+      - ii 63
+      - j 74
+  x1 75:
+    datadep:
+      - xr 22
+      - xr 26
+      - xr 67
+      - x1 70
+      - x1 75
+      - j 74
+    controldep:
+      - j 74
+  x2 76:
+    datadep:
+      - xr 22
+      - xr 26
+      - xr 67
+      - j 74
+      - x2 72
+      - x2 76
+    controldep:
+      - j 74
+  y1 77:
+    datadep:
+      - zr 24
+      - zr 28
+      - zr 68
+      - j 74
+      - y1 71
+      - y1 77
+    controldep:
+      - j 74
+  y2 78:
+    datadep:
+      - zr 24
+      - zr 28
+      - zr 68
+      - j 74
+      - y2 78
+      - y2 73
+    controldep:
+      - j 74
+  dt 80:
+    datadep:
+      - x1 70
+      - x1 75
+      - x2 72
+      - x2 76
+      - y1 71
+      - y1 77
+      - y2 73
+      - y2 78
+    controldep:
+      - ii 63
+  diff 81:
+    datadep:
+      - dt 80 
+      - a 10
+    controldep:
+      - ii 63
+  diff 82:
+    reset: False
+    datadep:
+      - diff 81
+    controldep:
+      - ii 63
+  isFound 92:
+    datadep: Null
+    controldep:
+      - diff 82
+  isFound 98:
+    reset: False
+    datadep: 
+      - isFound 92
+      - isFound 64
+      - isFound 20
+    controldep:
+      - diff 47
+  ii 95:
+    datadep:
+      - ii 62
+      - ii 95
+    controldep:
+      - diff 82
+  i 99:
+    datadep:
+      - i 17
+      - i 99
+    controldep:
+      - isFound 98

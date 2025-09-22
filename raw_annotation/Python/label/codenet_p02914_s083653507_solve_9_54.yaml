@@ -1,0 +1,295 @@
+target_var: best 45
+other_vars: 
+  - ans 19
+  - ans 20
+  - ans 14
+  - best 42
+early_return: 
+  - 18
+  - 44
+variables: 
+  N 9:
+    datadep: Null
+    controldep: Null
+  A 9:
+    datadep: Null
+    controldep: Null
+  allxor 10:
+    datadep: Null
+    controldep: Null
+  a 11:
+    datadep:
+      - A 9
+    controldep:
+      - A 11
+  A 11:
+    reset: False
+    datadep:
+      - A 9
+    controldep:
+      - A 11
+  allxor 12:
+    datadep:
+      - allxor 10
+      - allxor 12
+      - a 11
+    controldep:
+      - A 11
+  B 13:
+    datadep:
+      - N 9
+    controldep: Null
+  bcount 15:
+    datadep: Null
+    controldep: Null
+  bit 16:
+    datadep: Null
+    controldep:
+      - Null 16
+  Null 16:
+    reset: False
+    datadep: Null
+    controldep:
+      - Null 16
+  mask 17:
+    datadep:
+      - bit 16
+    controldep:
+      - Null 16
+  allxor 18:
+    reset: False
+    datadep:
+      - allxor 10
+      - allxor 12
+    controldep:
+      - Null 16
+  mask 18:
+    reset: False
+    datadep:
+      - mask 17
+    controldep:
+      - Null 16
+  bset 22:
+    datadep: Null
+    controldep:
+      - allxor 18
+      - mask 18
+  i 23:
+    datadep:
+      - N 9
+    controldep:
+      - allxor 18
+      - mask 18
+      - N 23
+  N 23:
+    reset: False
+    datadep:
+      - N 9
+    controldep:
+      - allxor 18
+      - mask 18
+      - N 23
+  b 24:
+    datadep:
+      - B 13
+      - B 27
+      - i 23
+    controldep:
+      - N 23
+  b 25:
+    datadep:
+      - b 24
+    controldep:
+      - N 23
+  b 26:
+    datadep:
+      - bit 16
+      - mask 17
+      - b 25
+      - A 9
+      - i 23
+    controldep:
+      - N 23
+  B 27:
+    datadep:
+      - i 23
+      - b 26
+    controldep:
+      - N 23
+  bset 28:
+    datadep:
+      - b 26
+      - bset 22
+      - bset 28
+    controldep:
+      - N 23
+  bcount 29:
+    datadep:
+      - bcount 15
+      - bcount 29 
+    controldep:
+      - allxor 18
+      - mask 18
+  full_bit 30:
+    datadep:
+      - bcount 29 
+    controldep:
+      - allxor 18
+      - mask 18
+  blist 31:
+    datadep:
+      - bset 28
+      - bset 22
+    controldep:
+      - allxor 18
+      - mask 18
+  blist1 32:
+    datadep:
+      - blist 31
+    controldep:
+      - allxor 18
+      - mask 18
+  blist2 33:
+    datadep:
+      - blist 31
+    controldep:
+      - allxor 18
+      - mask 18
+  r1 34:
+    datadep: Null
+    controldep:
+      - allxor 18
+      - mask 18
+  b 35:
+    datadep:
+      - blist1 32
+    controldep:
+      - allxor 18
+      - mask 18
+      - blist1 35
+  blist1 35:
+    reset: False
+    datadep:
+      - blist1 32
+    controldep:
+      - allxor 18
+      - mask 18
+      - blist1 35
+  c 36:
+    datadep:
+      - r1 34
+      - r1 37
+    controldep:
+      - blist1 35
+      - r1 36
+  r1 36:
+    reset: False
+    datadep:
+      - r1 34
+      - r1 37
+    controldep:
+      - blist1 35
+      - r1 36
+  r1 37:
+    datadep:
+      - r1 34
+      - r1 37
+      - b 35
+      - c 36
+    controldep:
+      - r1 36
+  r2 38:
+    datadep: Null
+    controldep:
+      - allxor 18
+      - mask 18
+  b 39:
+    datadep:
+      - blist2 33
+    controldep:
+      - allxor 18
+      - mask 18
+      - blist2 39
+  blist2 39:
+    reset: False
+    datadep:
+      - blist2 33
+    controldep:
+      - allxor 18
+      - mask 18
+      - blist2 39
+  c 40:
+    datadep:
+      - r2 38
+      - r2 41
+    controldep:
+      - blist2 39
+      - r2 40
+  r2 40:
+    reset: False
+    datadep:
+      - r2 38
+      - r2 41
+    controldep:
+      - blist2 39
+      - r2 40
+  r2 41:
+    datadep:
+      - r2 38
+      - r2 41
+      - b 39
+      - c 40
+    controldep:
+      - r2 40
+  b1 43:
+    datadep:
+      - r1 34
+      - r1 37
+    controldep:
+      - allxor 18
+      - mask 18
+      - r1 43
+      - b1 44
+      - full_bit 44
+      - r2 44
+  r1 43:
+    reset: False
+    datadep:
+      - r1 34
+      - r1 37
+    controldep:
+      - allxor 18
+      - mask 18
+      - r1 43
+      - b1 44
+      - full_bit 44
+      - r2 44
+  b1 44:
+    reset: False
+    datadep:
+      - b1 43
+    controldep:
+      - r1 43
+  full_bit 44:
+    reset: False
+    datadep:
+      - full_bit 30
+    controldep:
+      - r1 43
+  r2 44:
+    reset: False
+    datadep:
+      - r2 38
+      - r2 41
+    controldep:
+      - r1 43
+  best 45:
+    datadep:
+      - full_bit 30
+    controldep:
+      - b1 44
+      - full_bit 44
+      - r2 44
+  
+
+  

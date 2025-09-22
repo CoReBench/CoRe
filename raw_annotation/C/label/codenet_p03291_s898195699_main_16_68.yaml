@@ -1,0 +1,89 @@
+target_var: chc 53
+other_vars:   
+  - ca 22
+  - cha 22
+  - cha 28
+  - ca 32
+  - cc 47
+  - cc 52
+  - ca 37
+  - ca 32
+  - cha 38
+  - cha 33
+  - ca 27
+  - i 23
+early_return: Null
+variables:
+  chc 53:
+    datadep:
+      - chc 42
+      - chc 48
+      - chc 53
+      - chc 58
+      - i 43
+    controldep:
+      - s 50
+      - i 50
+  chc 42:
+    datadep:  
+      - n 20
+    controldep: Null
+  chc 48:
+    datadep:
+      - chc 42
+      - chc 48
+      - chc 53
+      - chc 58
+      - i 43
+    controldep:
+      - s 45
+      - i 45
+  chc 58:
+    datadep:
+      - chc 42
+      - chc 48
+      - chc 53
+      - chc 58
+      - i 43
+    controldep:
+      - s 50
+      - i 50
+  s 45:
+    reset: False
+    datadep:
+      - s 19
+    controldep:
+      - i 43
+  s 50:
+    reset: False
+    datadep:
+      - s 19
+    controldep:
+      - s 45
+      - i 45
+  s 19:
+    datadep: Null
+    controldep: Null
+  i 43:
+    datadep:
+      - i 43
+      - n 20
+    controldep:
+      - i 43
+  n 20:
+    datadep:
+      - s 19
+    controldep: Null
+  i 45:
+    reset: False
+    datadep: 
+      - i 43
+    controldep:
+      - i 43
+  i 50:
+    reset: False
+    datadep: 
+      - i 43
+    controldep:
+      - s 45
+      - i 45

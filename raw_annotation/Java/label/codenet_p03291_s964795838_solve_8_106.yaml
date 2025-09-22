@@ -1,0 +1,156 @@
+target_var: add 73
+other_vars: 
+  - sumQ 14
+  - pow3 15
+  - pow3 16
+  - pow3 19
+  - sumQ 30
+  - ans 32
+  - add 42
+  - add 53
+  - ans 57
+  - add 61
+  - ans 66
+variables: 
+  MOD 10:
+    datadep: Null
+    controldep: Null
+  i 33:
+    datadep:
+      - i 33
+    controldep:
+      - i 33
+      - S 33
+  S 33:
+    reset: False
+    datadep:
+      - S 11
+    controldep:
+      - i 33
+      - S 33
+  S 11:
+    datadep: Null
+    controldep: Null
+  S 69:
+    reset: False
+    datadep:
+      - S 11
+    controldep:
+      - i 33
+      - S 33
+  i 69:
+    reset: False
+    datadep:
+      - i 33
+    controldep:
+      - i 33
+      - S 33
+  add 71:
+    datadep:
+      - sumA 12
+      - sumA 22
+      - sumA 26
+      - i 33
+    controldep:
+      - S 69
+      - i 69
+  add 72:
+    datadep:
+      - add 71
+      - sumC 13
+      - sumC 23
+      - sumC 28
+      - S 11
+      - i 33
+    controldep:
+      - S 69
+      - i 69
+  add 73:
+    datadep:
+      - add 72
+      - MOD 10
+    controldep:
+      - S 69
+      - i 69
+  sumA 12:
+    datadep: 
+      - S 11
+    controldep: Null
+  sumC 13:
+    datadep:
+      - S 11
+    controldep: Null
+  i 21:
+    datadep:
+      - i 21
+    controldep:
+      - i 21
+      - S 21
+  S 21:
+    reset: False
+    datadep:
+      - S 11
+    controldep:
+      - i 21
+      - S 21
+  sumA 22:
+    datadep:
+      - sumA 12
+      - sumA 22
+      - sumA 26
+      - i 21
+    controldep:
+      - i 21
+      - S 21
+  sumC 23:
+    datadep:
+      - sumC 13
+      - sumC 23
+      - sumC 28
+      - i 21
+    controldep:
+      - i 21
+      - S 21
+  S 25:
+    reset: False
+    datadep:
+      - S 11
+    controldep:
+      - i 21
+      - S 21
+  S 27:
+    reset: False
+    datadep:
+      - S 11
+    controldep:
+      - i 21
+      - S 21
+  i 25:
+    reset: False
+    datadep:
+      - i 21
+    controldep:
+      - i 21
+      - S 21
+  i 27:
+    reset: False
+    datadep:
+      - i 21
+    controldep:
+      - i 21
+      - S 21
+  sumA 26:
+    datadep:
+      - sumA 22
+      - i 21
+    controldep:
+      - S 25
+      - i 25
+  sumC 28:
+    datadep:
+      - sumC 23
+      - i 21
+    controldep:
+      - S 27
+      - i 27
+  

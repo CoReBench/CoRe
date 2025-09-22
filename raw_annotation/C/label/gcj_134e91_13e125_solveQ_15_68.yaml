@@ -1,0 +1,184 @@
+target_var: C 40  
+other_vars: 
+  - F 15
+  - x 44
+  - n 18
+early_return: 
+  - 22
+  - 30
+  - 36
+  - 50
+  - 63
+variables:
+  C 17:
+    datadep: Null
+    controldep: Null
+  hasLet 18:
+    datadep: Null
+    controldep: Null
+  d 19:
+    datadep:
+      - d 19
+    controldep:
+      - d 19
+  i 20:
+    datadep:
+      - i 20
+    controldep:
+      - d 19
+      - i 20
+      - hasLet 30
+  j 21:
+    datadep:
+      - j 21
+    controldep:
+      - i 20
+      - j 21
+      - hasLet 22
+  hasLet 22:
+    reset: False
+    datadep:
+      - hasLet 18
+      - hasLet 26
+      - hasLet 31
+      - hasLet 33
+      - hasLet 54
+    controldep:
+      - j 21
+  C 25:
+    reset: False
+    datadep:
+      - C 17
+      - C 35
+      - C 40
+      - C 48
+    controldep:
+      - hasLet 22
+  j 25:
+    reset: False
+    datadep:
+      - j 21
+    controldep:
+      - hasLet 22
+  hasLet 26:
+    datadep:
+      - hasLet 18
+      - hasLet 26
+      - hasLet 31
+      - hasLet 33
+      - hasLet 54
+    controldep:
+      - C 25
+      - j 25
+  letter 27:
+    datadep:
+      - j 21
+    controldep:
+      - C 25
+      - j 25
+  hasLet 30:
+    reset: False
+    datadep:
+      - hasLet 18
+      - hasLet 26
+      - hasLet 31
+      - hasLet 33
+      - hasLet 54
+    controldep:
+      - i 20
+  hasLet 31:
+    datadep: Null
+    controldep:
+      - hasLet 30
+  hasLet 33:
+    datadep: Null
+    controldep:
+      - hasLet 30
+  S 34:
+    datadep:
+      - d 19
+      - d 39
+      - letter 27
+    controldep:
+      - hasLet 30
+  C 35:
+    datadep: Null
+    controldep:
+      - hasLet 30
+  d 36:
+    reset: False
+    datadep:
+      - d 19
+      - d 39
+    controldep:
+      - hasLet 30
+  k 39:
+    datadep:
+      - d 19
+    controldep:
+      - d 36
+      - d 39
+  d 39:
+    datadep:
+      - d 19
+      - d 39
+    controldep:
+      - d 36
+      - d 39
+  C 40:
+    datadep:
+      - k 39
+      - S 34
+    controldep:
+      - d 39
+  l 47:
+    datadep: Null
+    controldep:
+      - hasLet 30
+  C 48:
+    datadep:
+      - C 17
+      - C 35
+      - C 40
+      - C 48
+      - l 47
+    controldep:
+      - hasLet 30
+  j 49:
+    datadep:
+      - j 49
+    controldep:
+      - hasLet 30
+      - j 49
+      - hasLet 50
+  hasLet 50:
+    reset: False
+    datadep:
+      - hasLet 31
+      - hasLet 33
+      - hasLet 54
+    controldep:
+      - j 49
+  C 53:
+    reset: False
+    datadep:
+      - C 17
+      - C 35
+      - C 40
+      - C 48
+    controldep:
+      - hasLet 50
+  j 53:
+    reset: False
+    datadep:
+      - j 49
+    controldep:
+      - hasLet 50
+  hasLet 54:
+    datadep:
+      - hasLet 31
+      - hasLet 33
+      - hasLet 54
+    controldep:
+      - C 53
+      - j 53

@@ -1,0 +1,51 @@
+target_var: res 77
+other_vars:
+  - m 9
+  - s 10
+  - p 7
+  - ans 14
+  - dxj 37
+  - nd 45
+  - dx 63
+  - nd 60
+  - kx 74
+  - ky 76
+early_return: 
+  - 83
+variables: 
+  res 77:
+    datadep:
+      - res 68
+      - res 77
+    controldep:
+      - n 69
+  n 6:
+    datadep: Null
+    controldep: Null
+  m 65:
+    datadep: 
+      - n 6
+    controldep: Null
+  m 66:
+    reset: False
+    datadep:
+      - m 65
+    controldep:
+      - m 66
+  b 66:
+    datadep:
+      - m 65
+    controldep:
+      - m 66
+  res 68:
+    datadep:
+      - b 66
+    controldep:
+      - m 66
+  n 69:
+    reset: False
+    datadep:
+      - n 6
+    controldep:
+      - n 69
+      - m 66

@@ -1,0 +1,74 @@
+target_var: x 105
+other_vars:
+  - ans 58
+  - ans 60
+  - not 65
+  - x 66
+  - y 67
+  - not 76
+  - x 79
+  - y 80
+  - not 89
+  - x 92
+  - y 93
+  - not 102
+  - y 106
+  - not 115
+  - ans 122
+early_return: 
+  - 70
+  - 72
+  - 83
+  - 85
+  - 96
+  - 98
+  - 109
+  - 111
+  - 120
+variables:
+  h 55:
+    datadep: Null
+    controldep: Null
+  w 56:
+    datadep: Null
+    controldep: Null
+  d 57:
+    datadep: Null
+    controldep: Null
+  i 61:
+    datadep:
+      - i 61
+    controldep:
+      - i 61
+      - h 61
+  h 61:
+    reset: False
+    datadep:
+      - h 55
+    controldep:
+      - i 61
+      - h 61
+  j 63:
+    datadep:
+      - j 63
+    controldep:
+      - i 61
+      - h 61
+      - j 63
+      - w 63
+  w 63:
+    reset: False
+    datadep:
+      - w 56
+    controldep:
+      - i 61
+      - h 61
+      - j 63
+      - w 63
+  x 105:
+    datadep:
+      - j 63
+      - d 57
+    controldep:
+      - j 63
+      - w 63

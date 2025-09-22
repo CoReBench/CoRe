@@ -1,0 +1,153 @@
+target_var: a 32
+other_vars: 
+early_return: 
+  - 31
+variables:
+  TOO_BIG 10:
+    datadep: Null
+    controldep: Null
+  TOO_SMALL 11:
+    datadep: Null
+    controldep: Null
+  t 15:
+    datadep: Null
+    controldep: Null
+  i 16:
+    datadep:
+      - i 16
+    controldep:
+      - i 16
+      - t 16
+      - CORRECT 33
+      - result 33
+  t 16:
+    reset: False
+    datadep:
+      - t 15
+    controldep:
+      - i 16
+      - t 16
+      - CORRECT 33
+      - result 33
+  splits 17:
+    datadep: Null
+    controldep:
+      - i 16
+      - t 16
+  a 18:
+    datadep:
+      - splits 17
+    controldep:
+      - i 16
+      - t 16
+  b 19:
+    datadep:
+      - splits 17
+    controldep:
+      - i 16
+      - t 16
+  n 20:
+    datadep: Null
+    controldep:
+      - i 16
+      - t 16
+  n 21:
+    datadep:
+      - n 20
+      - n 21
+    controldep:
+      - i 16
+      - t 16
+      - TOO_SMALL 31
+      - result 31
+  a 23:
+    reset: False
+    datadep:
+      - a 18
+      - a 32
+    controldep:
+      - n 21
+  b 23:
+    reset: False
+    datadep:
+      - b 19
+      - b 30
+    controldep:
+      - n 21
+  cur 24:
+    datadep:
+      - a 18
+      - a 32
+    controldep:
+      - a 23
+      - b 23
+  cur 26:
+    datadep:
+      - b 19
+      - b 30
+      - a 18
+      - a 32
+    controldep:
+      - a 23
+      - b 23
+  result 28:
+    datadep: Null
+    controldep:
+      - n 21
+  TOO_BIG 29:
+    reset: False
+    datadep:
+      - TOO_BIG 10
+    controldep:
+      - n 21
+  result 29:
+    reset: False
+    datadep:
+      - result 28
+    controldep:
+      - n 21
+  b 30:
+    datadep:
+      - cur 24
+      - cur 26
+    controldep:
+      - TOO_BIG 29
+      - result 29
+  TOO_SMALL 31:
+    reset: False
+    datadep:
+      - TOO_SMALL 11
+    controldep:
+      - TOO_BIG 29
+      - result 29
+  result 31:
+    reset: False
+    datadep:
+      - result 28
+    controldep:
+      - TOO_BIG 29
+      - result 29
+  a 32:
+    datadep:
+      - cur 24
+      - cur 26
+    controldep:
+      - TOO_SMALL 31
+      - result 31
+  CORRECT 33:
+    reset: False
+    datadep:
+      - CORRECT 12
+    controldep:
+      - TOO_SMALL 31
+      - result 31
+  result 33:
+    reset: False
+    datadep:
+      - result 28
+    controldep:
+      - TOO_SMALL 31
+      - result 31
+  CORRECT 12:
+    datadep: Null
+    controldep: Null

@@ -1,0 +1,326 @@
+target_var: q 63
+other_vars:
+  - tour 17
+  - te 18
+  - te 19
+  - te 20
+  - tour 21
+  - te 34
+  - te 35
+  - tour 37
+  - tmp 44
+  - nearX 51
+  - nearX 45
+  - nearY 46
+  - nearY 52
+early_return: 
+  - 49
+  - 59
+  - 61
+  - 74
+  - 90
+variables:
+  dx 5:
+    datadep: Null
+    controldep: Null
+  dy 6:
+    datadep: Null
+    controldep: Null
+  T 9:
+    datadep: Null
+    controldep: Null
+  t 10:
+    datadep:
+      - t 10
+    controldep:
+      - t 10
+      - T 10
+  T 10:
+    reset: False
+    datadep:
+      - T 9
+    controldep:
+      - t 10
+      - T 10
+  X 11:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  Y 12:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  M 13:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  g 14:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  px 15:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  py 16:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  g 22:
+    datadep:
+      - px 15
+      - py 16
+    controldep:
+      - t 10
+      - T 10
+  i 23:
+    datadep:
+      - i 23
+    controldep:
+      - t 10
+      - T 10
+      - i 23
+      - M 23
+  M 23:
+    reset: False
+    datadep:
+      - M 13
+    controldep:
+      - t 10
+      - T 10
+      - i 23
+      - M 23
+  d 24:
+    datadep:
+      - M 13
+      - i 23
+    controldep:
+      - i 23
+      - M 23
+  d 25:
+    reset: False
+    datadep:
+      - d 24
+    controldep:
+      - i 23
+      - M 23
+  py 26:
+    datadep:
+      - py 16
+      - py 26
+      - py 28
+    controldep:
+      - d 25
+  d 27:
+    reset: False
+    datadep:
+      - d 24
+    controldep:
+      - i 23
+      - M 23
+  py 28:
+    datadep:
+      - py 16
+      - py 26
+      - py 28
+    controldep:
+      - d 27
+  d 29:
+    reset: False
+    datadep:
+      - d 24
+    controldep:
+      - i 23
+      - M 23
+  px 30:
+    datadep:
+      - px 15
+      - px 30
+      - px 32
+    controldep:
+      - d 29
+  d 31:
+    reset: False
+    datadep:
+      - d 24
+    controldep:
+      - i 23
+      - M 23
+  px 32:
+    datadep:
+      - px 15
+      - px 30
+      - px 32
+    controldep:
+      - d 31
+  g 33:
+    datadep:
+      - px 15
+      - px 30
+      - px 32
+      - py 16
+      - py 26
+      - py 28
+    controldep:
+      - i 23
+      - M 23
+  visited 39:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  myx 40:
+    datadep:
+      - X 11
+    controldep:
+      - t 10
+      - T 10
+  myy 41:
+    datadep:
+      - Y 12
+    controldep:
+      - t 10
+      - T 10
+  q 42:
+    datadep: Null
+    controldep:
+      - t 10
+      - T 10
+  q 43:
+    datadep:
+      - q 42
+      - myx 40
+      - myy 41
+    controldep:
+      - t 10
+      - T 10
+  q 47:
+    reset: False
+    datadep:
+      - q 43
+      - q 48
+      - q 63
+    controldep:
+      - t 10
+      - T 10
+      - g 49
+      - now 49
+  now 48:
+    datadep:
+      - q 43
+      - q 48
+      - q 63
+    controldep:
+      - q 47
+  q 48:
+    datadep:
+      - q 43
+      - q 48
+      - q 63
+    controldep:
+      - q 47
+  g 49:
+    reset: False
+    datadep:
+      - g 33
+      - g 22
+      - g 14
+    controldep:
+      - q 47
+  now 49:
+    reset: False
+    datadep:
+      - now 48
+    controldep:
+      - q 47
+  visited 55:
+    datadep:
+      - now 48
+    controldep:
+      - g 49
+      - now 49
+  v 56:
+    datadep:
+      - v 56
+    controldep:
+      - g 49
+      - now 49
+      - v 56
+  nx 57:
+    datadep:
+      - now 48
+      - dx 5
+      - v 56
+    controldep:
+      - v 56
+  ny 58:
+    datadep:
+      - now 48
+      - dy 6
+      - v 56
+    controldep:
+      - v 56
+  nx 59:
+    reset: False
+    datadep:
+      - nx 57
+    controldep:
+      - v 56
+  visited 59:
+    reset: False
+    datadep:
+      - visited 55
+      - visited 39
+    controldep:
+      - v 56
+  ny 59:
+    reset: False
+    datadep:
+      - ny 58
+    controldep:
+      - v 56
+  visited 61:
+    reset: False
+    datadep:
+      - visited 55
+      - visited 39
+    controldep:
+      - nx 59
+      - ny 59
+      - visited 59
+  ny 61:
+    reset: False
+    datadep:
+      - ny 58
+    controldep:
+      - nx 59
+      - ny 59
+      - visited 59
+  nx 61:
+    reset: False
+    datadep:
+      - nx 57
+    controldep:
+      - nx 59
+      - ny 59
+      - visited 59
+  q 63:
+    datadep:
+      - now 48
+      - nx 57
+      - ny 58
+      - q 48
+      - q 63
+    controldep:
+      - nx 61
+      - ny 61
+      - visited 61
+  
+
+  

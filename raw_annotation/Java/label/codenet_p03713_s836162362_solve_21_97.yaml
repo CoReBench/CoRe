@@ -1,0 +1,181 @@
+target_var: s3 55
+other_vars: 
+  - minSum 29
+  - s1 36
+  - s2 37
+  - s3 38
+  - max 39
+  - min 40
+  - minSum 41
+  - s1 53
+  - s2 54
+  - s1 69
+  - s2 70
+  - s3 71
+  - max 72
+  - min 73
+  - x 77
+  - h 78
+  - w 79
+  - s1 88
+  - s2 89
+  - s3 90
+  - max 91
+  - min 92
+early_return: 
+  - 25
+  - 31
+  - 34
+  - 48
+  - 51
+  - 62
+  - 65
+  - 67
+  - 81
+  - 84
+  - 86
+variables: 
+  s3 55:
+    datadep:
+      - h 45
+      - w 46
+      - a 47
+      - b 50
+    controldep:
+      - b 51
+      - w 51
+  h 45:
+    datadep:
+      - w 23
+    controldep:
+      - h 24
+      - w 24
+  x 44:
+    datadep:
+      - h 22
+    controldep:
+      - h 24
+      - w 24
+  w 46:
+    datadep:
+      - x 44
+    controldep:
+      - h 24
+      - w 24
+  a 47:
+    datadep:
+      - h 45
+      - a 47
+      - offset 28
+    controldep:
+      - h 24
+      - w 24
+      - a 47
+      - h 47
+      - offset 47
+  h 47:
+    reset: False
+    datadep:
+      - h 45
+    controldep:
+      - h 24
+      - w 24
+      - a 47
+      - h 47
+      - offset 47
+  offset 47:
+    reset: False
+    datadep:
+      - offset 28
+    controldep:
+      - h 24
+      - w 24
+      - a 47
+      - h 47
+      - offset 47
+  a 48:
+    reset: False
+    datadep:
+      - a 47
+    controldep:
+      - a 47
+      - h 47
+      - offset 47
+  h 48:
+    reset: False
+    datadep:
+      - h 45
+    controldep:
+      - a 47
+      - h 47
+      - offset 47
+  b 50:
+    datadep:
+      - b 50
+      - w 46
+      - offset 28
+    controldep:
+      - a 48
+      - h 48
+      - b 50
+      - w 50
+      - offset 50
+  w 50:
+    reset: False
+    datadep:
+      - w 46
+    controldep:
+      - a 48
+      - h 48
+      - b 50
+      - w 50
+      - offset 50
+  offset 50:
+    reset: False
+    datadep:
+      - offset 28
+    controldep:
+      - a 48
+      - h 48
+      - b 50
+      - w 50
+      - offset 50
+  b 51:
+    reset: False
+    datadep:
+      - b 50
+    controldep:
+      - b 50
+      - w 50
+      - offset 50
+  w 51:
+    reset: False
+    datadep:
+      - w 46
+    controldep:
+      - b 50
+      - w 50
+      - offset 50
+  h 22:
+    datadep: Null
+    controldep: Null
+  w 23:
+    datadep: Null
+    controldep: Null
+  h 24:
+    reset: False
+    datadep:
+      - h 22
+    controldep: Null
+  w 24:
+    reset: False
+    datadep:
+      - w 23
+    controldep: Null
+  offset 28:
+    datadep: Null 
+    controldep:
+      - h 24
+      - w 24
+  
+  

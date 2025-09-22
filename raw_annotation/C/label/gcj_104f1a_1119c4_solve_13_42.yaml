@@ -1,0 +1,115 @@
+target_var: answer 33
+other_vars: 
+  - hole 24
+  - maxGophers 16
+early_return: 
+  - 21
+  - 38
+variables:
+  answer 33:
+    datadep:
+      - answer 18
+      - answer 33
+      - numBlades 20
+    controldep:
+      - sum 32
+      - numBlades 32
+  numBlades 20:
+    datadep:
+      - night 19
+    controldep:
+      - night 19
+      - maxNights 19
+  sum 32:
+    reset: False
+    datadep:
+      - sum 28
+      - sum 30
+    controldep:
+      - numBlades 21
+  numBlades 32:
+    reset: False
+    datadep:
+      - numBlades 20
+    controldep:
+      - numBlades 21
+  numBlades 21:
+    reset: False
+    datadep:
+      - numBlades 20
+    controldep:
+      - night 19
+      - maxNights 19
+  night 19:
+    datadep:
+      - night 19
+    controldep:
+      - night 19
+      - maxNights 19
+      - c 17
+      - numCases 17
+      - numBlades 21
+  maxNights 19:
+    reset: False
+    datadep:
+      - maxNights 15
+    controldep:
+      - night 19
+      - maxNights 19
+      - c 17
+      - numCases 17
+      - numBlades 21
+  maxNights 15:
+    datadep: Null
+    controldep: Null
+  c 17:
+    datadep:
+      - c 17
+    controldep:
+      - c 17
+      - numCases 17
+      - correct 38
+  numCases 17:
+    reset: False
+    datadep:
+      - numCases 14
+    controldep:
+      - c 17
+      - numCases 17
+      - correct 38
+  numCases 14:
+    datadep: Null
+    controldep: Null
+  answer 18:
+    datadep: Null
+    controldep:
+      - c 17
+      - numCases 17
+  sum 28:
+    datadep: Null 
+    controldep:
+      - numBlades 21
+  sum 30:
+    datadep:
+      - sum 30
+      - sum 28
+    controldep:
+      - hole 29
+  hole 29:
+    datadep:
+      - hole 29
+    controldep:
+      - numBlades 21
+      - hole 29
+  correct 37:
+    datadep: Null
+    controldep:
+      - c 17
+      - numCases 17
+  correct 38:
+    reset: False
+    datadep:
+      - correct 37
+    controldep:
+      - c 17
+      - numCases 17

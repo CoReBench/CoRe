@@ -1,0 +1,179 @@
+target_var: c_l1 62
+other_vars:
+  - c_l 21
+  - c_l 23
+  - c_l 25
+  - c_l 27
+  - x 28
+  - y 29
+  - c_l 30
+  - c_l 31
+  - y 34
+  - c_l 35
+  - c_l 36
+  - x 38
+  - c_l 39
+  - c_l 40
+variables:
+  s 9:
+    datadep: Null
+    controldep: Null
+  n 9:
+    datadep: Null
+    controldep: Null
+  maze 10:
+    datadep: Null
+    controldep: Null
+  i 11:
+    datadep:
+      - n 9
+    controldep:
+      - n 11
+  n 11:
+    reset: False
+    datadep:
+      - n 9
+    controldep:
+      - n 11
+  maze 12:
+    datadep:
+      - maze 10
+      - maze 12
+      - maze 14
+      - maze 17
+      - maze 19
+    controldep:
+      - n 11
+  j 13:
+    datadep:
+      - n 9
+    controldep:
+      - n 11
+      - n 13
+  n 13:
+    reset: False
+    datadep:
+      - n 9
+    controldep:
+      - n 11
+      - n 13
+  maze 14:
+    datadep:
+      - maze 12
+      - maze 14
+      - maze 17
+      - maze 19
+      - i 11
+    controldep:
+      - n 13
+  k 15:
+    datadep: Null
+    controldep:
+      - n 13
+      - Null 15
+  Null 15:
+    reset: False
+    datadep: Null
+    controldep:
+      - n 13
+      - Null 15
+  k 16:
+    reset: False
+    datadep:
+      - k 15
+    controldep:
+      - Null 15
+  maze 17:
+    datadep:
+      - maze 14
+      - maze 17
+      - maze 19
+      - i 11
+      - j 13
+    controldep:
+      - k 16
+  maze 19:
+    datadep:
+      - maze 14
+      - maze 17
+      - maze 19
+      - i 11
+      - j 13
+    controldep:
+      - k 16
+  l 20:
+    datadep:
+      - s 9
+    controldep: Null
+  l 42:
+    datadep:
+      - l 20
+    controldep: Null
+  x1 50:
+    datadep: Null
+    controldep: Null
+  y1 51:
+    datadep: Null
+    controldep: Null
+  i 54:
+    datadep:
+      - n 9
+    controldep:
+      - n 54
+  n 54:
+    reset: False
+    datadep:
+      - n 9
+    controldep:
+      - n 54
+  l 55:
+    reset: False
+    datadep:
+      - l 42
+    controldep:
+      - n 54
+  i 55:
+    reset: False
+    datadep:
+      - i 54
+    controldep:
+      - n 54
+  y1 56:
+    datadep:
+      - y1 51
+      - y1 56
+    controldep:
+      - l 55
+      - i 55
+  l 59:
+    reset: False
+    datadep:
+      - l 42
+    controldep:
+      - n 54
+  i 59:
+    reset: False
+    datadep:
+      - i 54
+    controldep:
+      - n 54
+  x1 60:
+    datadep:
+      - x1 50
+      - x1 60
+    controldep:
+      - l 59
+      - i 59
+  c_l1 62:
+    datadep:
+      - maze 12
+      - maze 14
+      - maze 17
+      - maze 19
+      - x1 60
+      - y1 51
+      - y1 56
+      - i 54
+    controldep:
+      - l 59
+      - i 59
