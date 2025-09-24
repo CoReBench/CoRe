@@ -1,13 +1,16 @@
-import os
 import json
-from typing import Dict, List, Tuple, Union
-from tqdm import tqdm
+import os
 import sys
-sys.path.append('..')
+from typing import Dict, List
+
+from tqdm import tqdm
+
+sys.path.append("..")
 from parse_label import *
 import argparse
 from utils import *
 import csv
+
 
 ############################################################
 # Redesigned EvaluationCounter class with confusion matrix
@@ -33,16 +36,14 @@ class EvaluationCounter:
         self.recall_sum = 0.0  # control‑dep
         self.false_edge_rate_sum = 0.0  # data/implicit dep
         self.missing_nodes_sum = 0.0  # data/implicit dep
-        self.correct_trace = 0.0  
+        self.correct_trace = 0.0
 
         # ─── NEW: Source‑level accumulators ───────────────────────────────
-        self.sources_evals_count   = 0
+        self.sources_evals_count = 0
         self.sources_precision_sum = 0.0
-        self.sources_recall_sum    = 0.0
-        self.sources_f1_sum        = 0.0
-        self.sources_acc_sum       = 0.0
-
-
+        self.sources_recall_sum = 0.0
+        self.sources_f1_sum = 0.0
+        self.sources_acc_sum = 0.0
 
         self.not_parsed_count = 0
 
@@ -95,13 +96,11 @@ class EvaluationCounter:
         Accumulate metrics for one evaluated *source list*.
         Call this once per problem instance where sources are scored.
         """
-        self.sources_evals_count   += 1
+        self.sources_evals_count += 1
         self.sources_precision_sum += precision
-        self.sources_recall_sum    += recall
-        self.sources_f1_sum        += f1
-        self.sources_acc_sum       += acc  # 1 or 0
-
-
+        self.sources_recall_sum += recall
+        self.sources_f1_sum += f1
+        self.sources_acc_sum += acc  # 1 or 0
 
     # ------------------------------------------------------------------
     # Final metrics
@@ -118,21 +117,21 @@ class EvaluationCounter:
         )
 
         # Trace aggregates
-        avg_p = avg_fe = avg_miss = correct_trace_rate= 0.0
+        avg_p = avg_fe = avg_miss = correct_trace_rate = 0.0
         if self.trace_evals_count:
             avg_p = self.precision_sum / self.trace_evals_count
             # avg_r = self.recall_sum / self.trace_evals_count
             avg_fe = self.false_edge_rate_sum / self.trace_evals_count
             avg_miss = self.missing_nodes_sum / self.trace_evals_count
             correct_trace_rate = self.correct_trace / self.trace_evals_count
-    
+
         # ─── Source‑list metrics ─────────────────────────────────────────
         avg_src_p = avg_src_r = avg_src_f1 = avg_src_acc = 0.0
         if self.sources_evals_count:
-            avg_src_p  = self.sources_precision_sum / self.sources_evals_count
-            avg_src_r  = self.sources_recall_sum    / self.sources_evals_count
-            avg_src_f1 = self.sources_f1_sum        / self.sources_evals_count
-            avg_src_acc = self.sources_acc_sum      / self.sources_evals_count
+            avg_src_p = self.sources_precision_sum / self.sources_evals_count
+            avg_src_r = self.sources_recall_sum / self.sources_evals_count
+            avg_src_f1 = self.sources_f1_sum / self.sources_evals_count
+            avg_src_acc = self.sources_acc_sum / self.sources_evals_count
             return {
                 "total": self.sources_evals_count,
                 "accuracy": avg_src_acc,
@@ -143,7 +142,7 @@ class EvaluationCounter:
                 # "avg_trace_recall": avg_r,
                 "avg_false_edge_rate": avg_fe,
                 "avg_missing_nodes": avg_miss,
-                "correct_trace_rate": correct_trace_rate
+                "correct_trace_rate": correct_trace_rate,
             }
 
         return {
@@ -156,12 +155,8 @@ class EvaluationCounter:
             # "avg_trace_recall": avg_r,
             "avg_false_edge_rate": avg_fe,
             "avg_missing_nodes": avg_miss,
-            "correct_trace_rate": correct_trace_rate
+            "correct_trace_rate": correct_trace_rate,
         }
-
-
-        
-
 
 
 ############################################################
@@ -169,18 +164,33 @@ class EvaluationCounter:
 ############################################################
 class Evaluator:
 
-    def __init__(self, response_file: str, label_root:str, out_root: str, trace:bool=False, source:bool=False):
+    def __init__(
+        self,
+        response_file: str,
+        label_root: str,
+        out_root: str,
+        trace: bool = False,
+        source: bool = False,
+    ):
         self.response_file = response_file  # a jsonl
         self.label_root = label_root
         self.out_root = out_root
-        self.eval_file = os.path.join(out_root, os.path.basename(response_file).replace(".jsonl", "_eval.jsonl"))
-        self.counter= EvaluationCounter() 
+        self.eval_file = os.path.join(
+            out_root, os.path.basename(response_file).replace(".jsonl", "_eval.jsonl")
+        )
+        self.counter = EvaluationCounter()
         self.not_parsed_count = 0
         self.trace = trace
         self.source = source
 
-
-    def preprocess_trace(self, task_type: str, trace: List, start: int, clip: bool, list_all:bool=False) -> List:
+    def preprocess_trace(
+        self,
+        task_type: str,
+        trace: List,
+        start: int,
+        clip: bool,
+        list_all: bool = False,
+    ) -> List:
         def unpack(node):
             if task_type == "data":
                 var, line = node
@@ -196,9 +206,8 @@ class Evaluator:
                     return trace
                 ret = []
                 for var, line in trace:
-                    ret.append([var, line_before_clip(line, start)] )
-                return  ret
-
+                    ret.append([var, line_before_clip(line, start)])
+                return ret
 
         if task_type == "control":
             return [line_before_clip(l, start) for l in trace] if clip else trace
@@ -220,9 +229,10 @@ class Evaluator:
 
         else:
             raise ValueError(f"Unsupported task_type: {task_type}")
-        
 
-    def evaluate_trace(self, prog, task_type: str, gt_trace: list, candidate_trace: list) -> dict:
+    def evaluate_trace(
+        self, prog, task_type: str, gt_trace: list, candidate_trace: list
+    ) -> dict:
         if task_type == "control":
             if len(gt_trace) <= 1:
                 gt = gt_trace[0] if gt_trace else []
@@ -243,16 +253,16 @@ class Evaluator:
 
         elif task_type == "infoflow":
             processed_candidate_trace = prog.process_candidate_trace(candidate_trace)
-            return prog.evaluate_implicit_trace(processed_candidate_trace, verbose=False)
+            return prog.evaluate_implicit_trace(
+                processed_candidate_trace, verbose=False
+            )
 
         else:
             raise ValueError(f"Unsupported task type: {task_type}")
-    
-    def evaluate_sources(self,
-                     prog,
-                     task_type: str,
-                     candidate_sources: list,
-                     target_var: "Variable") -> dict:
+
+    def evaluate_sources(
+        self, prog, task_type: str, candidate_sources: list, target_var: "Variable"
+    ) -> dict:
         """
         Evaluate *source–only* predictions.
 
@@ -272,41 +282,35 @@ class Evaluator:
         if task_type == "control":
             # list[int]
             return prog.evaluate_control_sources(
-                target_var,
-                candidate_sources,           # prediction
-                include_self=True
+                target_var, candidate_sources, include_self=True  # prediction
             )
 
         elif task_type == "data":
             # list[Tuple[str,int]]
             return prog.evaluate_data_sources(
-                target_var,
-                candidate_sources,
-                include_self=True
+                target_var, candidate_sources, include_self=True
             )
 
         elif task_type == "infoflow":
             # list[Tuple[str,int]]
             return prog.evaluate_implicit_sources(
-                target_var,
-                candidate_sources,
-                include_self=True
+                target_var, candidate_sources, include_self=True
             )
 
         else:
             raise ValueError(f"Unsupported task type: {task_type}")
 
     def eval_prep(self):
-        with open(self.response_file, 'r') as f, open(self.eval_file, 'w') as out_f:
+        with open(self.response_file, "r") as f, open(self.eval_file, "w") as out_f:
             for i, line in tqdm(enumerate(f), "Trace prep"):
                 try:
                     data = json.loads(line)
                 except:
                     print(f"Fail to read line {i+1} for file {self.response_file}")
                     assert False
-                task_type = data["task_id"].split('_')[0]
+                task_type = data["task_id"].split("_")[0]
                 start = data["start"]
-                clip = False #data["setting"]['clip']
+                clip = False  # data["setting"]['clip']
                 gt_trace = data.get("groundtruth_trace", [])
                 parsed = data["response"]["parsed"]
 
@@ -314,42 +318,68 @@ class Evaluator:
                     self.not_parsed_count += 1
 
                 if self.source:
-                    prog = Program(os.path.join(self.label_root, data['language'], "label", data["label_file"]))
-                    if isinstance(data['dst'], list):
-                        target_var = prog.get_variable(data['dst'][0], data['dst'][1])
+                    prog = Program(
+                        os.path.join(
+                            self.label_root,
+                            data["language"],
+                            "label",
+                            data["label_file"],
+                        )
+                    )
+                    if isinstance(data["dst"], list):
+                        target_var = prog.get_variable(data["dst"][0], data["dst"][1])
                     else:
-                        target_var = prog.get_variable(linenum=data['dst'])
+                        target_var = prog.get_variable(linenum=data["dst"])
                     if not target_var:
                         assert False, f"Target variable {data['dst']} not found."
-                    processed_list = self.preprocess_trace(task_type, parsed.get("sources", []) if parsed else [], start, clip, list_all=True)
-                    data["response"]['eval'] = self.evaluate_sources(prog, task_type, processed_list, target_var)
+                    processed_list = self.preprocess_trace(
+                        task_type,
+                        parsed.get("sources", []) if parsed else [],
+                        start,
+                        clip,
+                        list_all=True,
+                    )
+                    data["response"]["eval"] = self.evaluate_sources(
+                        prog, task_type, processed_list, target_var
+                    )
 
                 else:
                     # Evaluate answer corectness
                     answer = parsed["answer"] if parsed else False
                     gt = data["groundtruth"]
-                    data["response"].setdefault("eval", {})["correct"] = (gt == answer)
+                    data["response"].setdefault("eval", {})["correct"] = gt == answer
 
                     # Evaluate trace
                     if self.trace:
-                        prog = Program(os.path.join(self.label_root, data['language'], "label", data["label_file"]))
+                        prog = Program(
+                            os.path.join(
+                                self.label_root,
+                                data["language"],
+                                "label",
+                                data["label_file"],
+                            )
+                        )
 
                         if prog is None or parsed is None:
                             processed_trace = []
                         else:
-                            processed_trace = self.preprocess_trace(task_type, parsed["trace"], start, clip)
-                        eval_result = self.evaluate_trace(prog, task_type, gt_trace, processed_trace)
-                        eval_result['processed_trace'] = processed_trace
+                            processed_trace = self.preprocess_trace(
+                                task_type, parsed["trace"], start, clip
+                            )
+                        eval_result = self.evaluate_trace(
+                            prog, task_type, gt_trace, processed_trace
+                        )
+                        eval_result["processed_trace"] = processed_trace
 
                         data["response"]["eval"].update(eval_result)
 
                 json.dump(data, out_f)
                 out_f.write("\n")
 
-    def eval(self, lite: Optional[str] = None, reeval:bool=False):
+    def eval(self, lite: Optional[str] = None, reeval: bool = False):
         needs_eval_prep = True
         if os.path.exists(self.eval_file) and not reeval:
-            with open(self.eval_file, 'r') as ef, open(self.response_file, 'r') as rf:
+            with open(self.eval_file, "r") as ef, open(self.response_file, "r") as rf:
                 eval_lines = sum(1 for _ in ef)
                 response_lines = sum(1 for _ in rf)
                 if eval_lines == response_lines:
@@ -361,25 +391,33 @@ class Evaluator:
         if lite:
             lite_metadata = read_json(lite)
 
-
-        with open(self.eval_file, 'r') as f:
+        with open(self.eval_file, "r") as f:
             for line in tqdm(f, "Final Eval"):
                 data = json.loads(line)
                 task_id = data.get("task_id")
-                task_type = task_id.split('_')[0]
-                language = data['language']
+                task_type = task_id.split("_")[0]
+                language = data["language"]
                 if lite and task_id not in lite_metadata[task_type][language]:
                     continue
-                
+
                 if self.source:
-                    self.counter.update_sources(data["response"]["eval"]['precision'], data["response"]["eval"]['recall'], data["response"]["eval"]['f1'] ,  data["response"]["eval"]['accuracy'])
+                    self.counter.update_sources(
+                        data["response"]["eval"]["precision"],
+                        data["response"]["eval"]["recall"],
+                        data["response"]["eval"]["f1"],
+                        data["response"]["eval"]["accuracy"],
+                    )
 
                 else:
                     # if data['property']['fun_loc'] < 41:
                     #     continue
-                    task_type = task_id.split('_')[0]
+                    task_type = task_id.split("_")[0]
                     gt = data["groundtruth"]
-                    answer = data["response"]["parsed"]["answer"] if data["response"]["parsed"] else False
+                    answer = (
+                        data["response"]["parsed"]["answer"]
+                        if data["response"]["parsed"]
+                        else False
+                    )
 
                     self.counter.update_accuracy(answer, gt)
 
@@ -388,10 +426,10 @@ class Evaluator:
 
                     eval = data["response"]["eval"]
                     self.counter.update_trace(
-                        eval['total_edges'],
-                        eval['num_false_edges'],
-                        eval['missing_nodes'],
-                        eval['precision']
+                        eval["total_edges"],
+                        eval["num_false_edges"],
+                        eval["missing_nodes"],
+                        eval["precision"],
                     )
 
         self.summarize()
@@ -420,7 +458,15 @@ def get_setting(filepath):
         trace, source = False, True
     return trace, source
 
-def evaluate_folder(response_folder: str, label_root: str, out_root: str, csv_path: Optional[str] = None, lite: Optional[str] = None, reeval:bool = False):
+
+def evaluate_folder(
+    response_folder: str,
+    label_root: str,
+    out_root: str,
+    csv_path: Optional[str] = None,
+    lite: Optional[str] = None,
+    reeval: bool = False,
+):
     os.makedirs(out_root, exist_ok=True)
     results = []
     for fname in sorted(os.listdir(response_folder)):
@@ -429,16 +475,24 @@ def evaluate_folder(response_folder: str, label_root: str, out_root: str, csv_pa
             trace, source = get_setting(response_path)
             evaluator = Evaluator(response_path, label_root, out_root, trace, source)
             evaluator.eval(lite, reeval)
-            result = {"file": fname.split('.')[0], **evaluator.counter.compute()}
+            result = {"file": fname.split(".")[0], **evaluator.counter.compute()}
             for k, v in result.items():
-                if k in {"accuracy", "precision", "recall", "f1", "avg_trace_precision", "avg_false_edge_rate", "correct_trace_rate"}:
+                if k in {
+                    "accuracy",
+                    "precision",
+                    "recall",
+                    "f1",
+                    "avg_trace_precision",
+                    "avg_false_edge_rate",
+                    "correct_trace_rate",
+                }:
                     result[k] = f"{v * 100:.2f}"
                 elif isinstance(v, float):
                     result[k] = f"{v:.4f}"
             results.append(result)
 
     if csv_path:
-        with open(csv_path, 'w', newline='') as f:
+        with open(csv_path, "w", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=results[0].keys())
             writer.writeheader()
             writer.writerows(results)
@@ -447,14 +501,46 @@ def evaluate_folder(response_folder: str, label_root: str, out_root: str, csv_pa
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate model predictions.")
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("-r", "--response_file", type=str, help="Path to response JSONL file.")
-    group.add_argument("-f", "--response_folder", type=str, help="Path to folder of response JSONL files.")
-    parser.add_argument("-l", "--label_root", type=str, required=True, help="Path to label root directory.")
-    parser.add_argument("-o", "--out_root", type=str, required=True, help="Directory to store evaluation results.")
-    parser.add_argument("-c", "--csv", type=str, help="Optional CSV file path to summarize results.")
-    parser.add_argument("--lite", type=str, default=None,
-                        help="Optional path to a lite JSON file specifying a subset of task IDs to evaluate.")
-    parser.add_argument("--reeval", action="store_true", help="re-evaluate the previous eval.jsonl")
+    group.add_argument(
+        "-r", "--response_file", type=str, help="Path to response JSONL file."
+    )
+    group.add_argument(
+        "-f",
+        "--response_folder",
+        type=str,
+        help="Path to folder of response JSONL files.",
+    )
+    parser.add_argument(
+        "-l",
+        "--label_root",
+        type=str,
+        required=True,
+        help="Path to label root directory (/path/to/CoRe/raw_annotation).",
+    )
+    parser.add_argument(
+        "-o",
+        "--out_root",
+        type=str,
+        required=True,
+        help="Directory to store evaluation results.",
+    )
+    parser.add_argument(
+        "-c",
+        "--csv",
+        type=str,
+        help="Optional CSV file path with the summarized results.",
+    )
+    parser.add_argument(
+        "--lite",
+        type=str,
+        default=None,
+        help="Optional path to a lite JSON file specifying a subset of task IDs to evaluate.",
+    )
+    parser.add_argument(
+        "--reeval",
+        action="store_true",
+        help="re-evaluate and ignore the previous eval.jsonl",
+    )
 
     args = parser.parse_args()
 
@@ -462,7 +548,16 @@ if __name__ == "__main__":
 
     if args.response_file:
         trace, source = get_setting(args.response_file)
-        evaluator = Evaluator(args.response_file, args.label_root, args.out_root, trace, source)
+        evaluator = Evaluator(
+            args.response_file, args.label_root, args.out_root, trace, source
+        )
         evaluator.eval(lite=args.lite, reeval=args.reeval)
     else:
-        evaluate_folder(args.response_folder, args.label_root, args.out_root, args.csv, lite=args.lite, reeval=args.reeval)
+        evaluate_folder(
+            args.response_folder,
+            args.label_root,
+            args.out_root,
+            args.csv,
+            lite=args.lite,
+            reeval=args.reeval,
+        )

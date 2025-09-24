@@ -1,9 +1,8 @@
-import os
-import yaml
-from typing import List, Dict, Union, Any, Tuple
 import json
-import re
 import os
+from typing import Any, List, Tuple
+
+import yaml
 
 
 def read_json(file_path: str) -> Any:
@@ -17,9 +16,9 @@ def read_json(file_path: str) -> Any:
     :raises FileNotFoundError: If the file does not exist.
     :raises json.JSONDecodeError: If the file is not valid JSON.
     """
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         return json.load(file)
-    
+
 
 def read_yaml(file_path):
     """
@@ -29,7 +28,7 @@ def read_yaml(file_path):
     :return: Dictionary containing YAML data.
     """
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             data = yaml.safe_load(file)
         return data
     except FileNotFoundError:
@@ -39,23 +38,25 @@ def read_yaml(file_path):
         print(f"Error parsing YAML file: {e}")
         return None
 
+
 def get_file_list(dir_addr):
 
     files = []
-    for _,_, filenames in os.walk(dir_addr):
+    for _, _, filenames in os.walk(dir_addr):
         files.extend(filenames)
         break
 
-    if '.DS_Store' in files:
-        files.remove('.DS_Store')
+    if ".DS_Store" in files:
+        files.remove(".DS_Store")
 
     return files
 
 
 def read_file(file_path) -> List[str]:
     """Helper function to read the content of a file."""
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, "r", encoding="utf-8") as file:
         return file.readlines()
+
 
 def make_dir_if_not_exist(path: str) -> None:
     """
@@ -67,17 +68,17 @@ def make_dir_if_not_exist(path: str) -> None:
         raise RuntimeError(f"Failed to create directory '{path}': {e}")
 
 
-
-def line_after_clip(line:int, start:int):
+def line_after_clip(line: int, start: int):
     return line - start + 1
 
-def line_before_clip(line:int, start:int):
+
+def line_before_clip(line: int, start: int):
     return line + start - 1
 
-class LabelError(Exception):
-    def __init__(self, message = ""):
-        self.msg = message
 
+class LabelError(Exception):
+    def __init__(self, message=""):
+        self.msg = message
 
 
 def parse_filename(file_path: str) -> Tuple[str, str, str, str, str, int, int]:
@@ -89,7 +90,7 @@ def parse_filename(file_path: str) -> Tuple[str, str, str, str, str, int, int]:
     filename = filename.replace("_stripped", "")
 
     # Match from the right to extract start and end
-    parts = filename.split('_')
+    parts = filename.split("_")
     if len(parts) < 6:
         return (None, None, None, None, None, None, None)
 
@@ -102,24 +103,15 @@ def parse_filename(file_path: str) -> Tuple[str, str, str, str, str, int, int]:
     dataset = parts[0]
     problem = parts[1]
     solution = parts[2]
-    function = '_'.join(parts[3:-2])
+    function = "_".join(parts[3:-2])
 
-    return (
-        filename,
-        dataset,
-        problem,
-        solution,
-        function,
-        start_line,
-        end_line
-    )
+    return (filename, dataset, problem, solution, function, start_line, end_line)
 
 
 def get_file_loc(file_path: str) -> int:
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             lines = f.readlines()
         return len(lines)
     except Exception as e:
         return 0
-    

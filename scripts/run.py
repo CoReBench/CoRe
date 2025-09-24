@@ -194,14 +194,11 @@ def parse_args():
         description="Run LLM inference on control dependence prompts."
     )
 
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument(
-        "--prompt_file", type=str, help="Path to the input JSONL file with prompts."
-    )
-    group.add_argument(
-        "--prompt_folder",
+    parser.add_argument(
+        "--prompt",
         type=str,
-        help="Directory containing multiple JSONL prompt files.",
+        required=True,
+        help="Path to either a single JSONL file with prompts or a directory containing multiple JSONL prompt files.",
     )
 
     parser.add_argument(
@@ -239,13 +236,13 @@ def parse_args():
     parser.add_argument(
         "--trace",
         action="store_true",
-        help="(Only valid with --prompt_folder) Only run the experiment with trace generation.",
+        help="(Only valid with directory prompts) Only run the experiment with trace generation.",
     )
 
     parser.add_argument(
         "--source",
         action="store_true",
-        help="(Only valid with --prompt_folder and --lite) Only run the experiment for dependency source generation. Only run with lite",
+        help="(Only valid with directory prompts and --lite) Only run the experiment for dependency source generation. Only run with lite",
     )
 
     parser.add_argument(
@@ -256,20 +253,41 @@ def parse_args():
     )
 
     args = parser.parse_args()
-    if args.trace and not args.prompt_folder:
-        print("❌ Error: --trace is only valid when using --prompt_folder.")
+
+    # Check if prompt is a file or directory
+    if not os.path.exists(args.prompt):
+        print(f"❌ Error: The specified prompt path does not exist: {args.prompt}")
         sys.exit(1)
 
-    if args.source and not args.prompt_folder and not args.lite:
-        print("❌ Error: --source is only valid when using --prompt_folder and --lite")
+    args.is_file = os.path.isfile(args.prompt)
+    args.is_folder = os.path.isdir(args.prompt)
+
+    if not args.is_file and not args.is_folder:
+        print(
+            f"❌ Error: The prompt path is neither a file nor a directory: {args.prompt}"
+        )
+        sys.exit(1)
+
+    if args.trace and args.is_file:
+        print(
+            "❌ Error: --trace is only valid when --prompt is a directory with multiple files."
+        )
+        sys.exit(1)
+
+    if args.source and (args.is_file or not args.lite):
+        print(
+            "❌ Error: --source is only valid when --prompt is a directory and --lite"
+        )
         sys.exit(1)
 
     if (
-        args.prompt_folder
+        args.is_folder
         and (not args.source and not args.trace)
         or (args.source and args.trace)
     ):
-        print(f"❌ Error: eactly one of --trace and --source need to be set. ")
+        print(
+            f"❌ Error: exactly one of --trace and --source need to be set when --prompt is a directory."
+        )
         sys.exit(1)
 
     if args.model not in MODEL_MAP:
@@ -287,10 +305,10 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
 
-    if args.prompt_file:
-        print(f"Running inference on single file: {args.prompt_file}")
+    if args.is_file:
+        print(f"Running inference on single file: {args.prompt}")
         run_inference(
-            prompt_file=args.prompt_file,
+            prompt_file=args.prompt,
             response_folder=args.response_folder,
             model=args.model,
             max_tokens=args.max_tokens,
@@ -299,9 +317,9 @@ if __name__ == "__main__":
             trace=args.trace,
         )
     else:
-        print(f"Running inference on all files in folder: {args.prompt_folder}")
+        print(f"Running inference on all files in folder: {args.prompt}")
         run_inference_on_folder(
-            prompt_folder=args.prompt_folder,
+            prompt_folder=args.prompt,
             response_folder=args.response_folder,
             model=args.model,
             max_tokens=args.max_tokens,
