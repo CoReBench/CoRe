@@ -2,7 +2,7 @@ from utils import *
 import random
 import re
 from collections import defaultdict, deque
-from typing import Dict, List, Optional, Sequence, Set, Tuple
+from typing import Dict, List, Optional, Sequence, Set, Tuple, Union
 
 from ScanResults import condition_range
 
