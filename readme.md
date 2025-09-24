@@ -96,7 +96,7 @@ python scripts/run.py --help
 python scripts/eval.py --help
 ```
 
-Or see the example shell scripts:
+Or use our shell scripts:
 
 ```
 bash scripts/run.sh
@@ -113,41 +113,42 @@ This will evaluate all the files in the folder and generate a CSV file summarizi
 
 #### Example Usage
 
-We have two modes: `trace` and `source` (see section `overview` or paper for more details).
+Our data has two modes: `trace` and `source` (see section `overview` or paper for more details).
 
-To run experiments that ask to predict trace (data points with `category="trace"`):
 
-```bash
-python run.py \
-  --prompt CoRe/prompts \
-  --result_folder CoRe/response \
-  --model ds-v3 \
-  --max_tokens 2048 \
-  --temperature 0 \
-  --trace
-```
+- To run experiments that ask to predict trace (data points with `category="trace"`):
 
-This runs all the experiments that ask the model to predict trace and generates responses in the `CoRe/response` folder.
+  ```bash
+  python run.py \
+    --prompt CoRe/prompts \
+    --result_folder CoRe/response \
+    --model ds-v3 \
+    --max_tokens 2048 \
+    --temperature 0 \
+    --trace
+  ```
+  
+  This runs all the experiments that ask the model to predict trace and generates responses in the `CoRe/response` folder.
 
-To run experiments with source enumeration task (with CoRe Lite, data points with `category="trace"`):
+- To run experiments with source enumeration task (with CoRe Lite, data points with `category="source"`):
 
-```bash
-python run.py \
-  --prompt CoRe/prompts \
-  --result_folder CoRe/response \
-  --model ds-v3 \
-  --max_tokens 2048 \
-  --temperature 0 \
-  --source \
-  --lite CoRe/lite.json
-```
+  ```bash
+  python run.py \
+    --prompt CoRe/prompts \
+    --result_folder CoRe/response \
+    --model ds-v3 \
+    --max_tokens 2048 \
+    --temperature 0 \
+    --source \
+    --lite CoRe/lite.json
+  ```
+  
+  This runs all experiments with source mode, and `--lite` (required for `source` mode) specifies data points in CoRe Lite.
 
-This runs all experiments with source mode, and `--lite` specifies data points in CoRe Lite.
-
-After running either command, you can call `eval.sh` to evaluate the results.
-```bash
-bash eval.sh CoRe/response/ds-v3
-```
+- After running either command, you can call `eval.sh` to evaluate the results.
+  ```bash
+  bash eval.sh CoRe/response/ds-v3
+  ```
 
 Before using the bash scripts, please double-check the bash scripts and update the paths and arguments.
 
