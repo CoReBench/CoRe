@@ -1,31 +1,31 @@
 # CoRe: Benchmarking LLMs’ Code Reasoning Capabilities through Static Analysis Tasks
 
-📢 **News**: CoRe has been accepted as a **Spotlight Paper** at **NeurIPS 2025 Datasets & Benchmarks Track**! 🎉  
+📢 **News**: CoRe has been accepted as a **Spotlight Paper** at **NeurIPS 2025 Datasets & Benchmarks Track**! 🎉
 
 This repository contains the source code, prompts, and annotation data for **CoRe**, a benchmark designed to evaluate LLMs’ **code reasoning capabilities** through **static analysis tasks** across C/C++, Java, and Python.
 
 ---
 
 ### 🔗 Links
-- 📂 Dataset: [Hugging Face](https://huggingface.co/datasets/danningx/CoRe)  
-- 🌐 Website: [https://corebench.github.io](https://corebench.github.io)  
-- 📄 Paper (arXiv): [https://arxiv.org/abs/2507.05269](https://arxiv.org/abs/2507.05269)  
+- 📂 Dataset: [Hugging Face](https://huggingface.co/datasets/danningx/CoRe)
+- 🌐 Website: [https://corebench.github.io](https://corebench.github.io)
+- 📄 Paper (arXiv): [https://arxiv.org/abs/2507.05269](https://arxiv.org/abs/2507.05269)
 
 ---
 
 ### 📘 Overview
 
-Large Language Models (LLMs) are increasingly applied to **program analysis and reasoning**. However, evaluating their ability to perform **static reasoning tasks** (beyond text generation) has been underexplored.  
+Large Language Models (LLMs) are increasingly applied to **program analysis and reasoning**. However, evaluating their ability to perform **static reasoning tasks** (beyond text generation) has been underexplored.
 
-**CoRe** fills this gap by introducing:  
-- **Human-verified annotations** across C/C++, Java, Python programs.  
-- **Three task families** for static reasoning:  
-  - `data`: data dependency reasoning  
-  - `control`: control dependency reasoning  
-  - `infoflowdep`: information flow reasoning  
-- **Two modes**:  
-  - `source`: enumerate dependency sources  
-  - `trace`: pairwise classification + reasoning trace  
+**CoRe** fills this gap by introducing:
+- **Human-verified annotations** across C/C++, Java, Python programs.
+- **Three task families** for static reasoning:
+  - `data`: data dependency reasoning
+  - `control`: control dependency reasoning
+  - `infoflowdep`: information flow reasoning
+- **Two modes**:
+  - `source`: enumerate dependency sources
+  - `trace`: pairwise classification + reasoning trace
 
 ---
 ###  📂 Repository Structure
@@ -89,24 +89,69 @@ A smaller representative subset is available via `lite.json` for lightweight exp
 
 ### 🚀 Quickstart
 
-To run or evaluate models, see the example shell scripts:
-
-
-```
-bash scripts/run.sh
-bash scripts/eval.sh
-```
-Before running, please double-check the scripts and update the paths and arguments.
-
-
-Or use the CLI:
-
+To run or evaluate models, checkout our scripts:
 ```
 python scripts/run.py --help
 python scripts/eval.py --help
 ```
 
-To evaluate only on CoRe Lite, use the `--lite lite.json` argument when running `run.py`.
+Or see the example shell scripts:
+
+```
+bash scripts/run.sh
+bash scripts/eval.sh <response_folder>
+```
+
+By running `run.py`/`run.sh`, responses will be generated in jsonl files at `response_folder/model_name/response/xx.jsonl`. After generation, you can call:
+
+```
+bash eval.sh response_folder/model_name
+```
+
+This will evaluate all the files in the folder and generate a CSV file summarizing all the results.
+
+#### Example Usage
+
+We have two modes: `trace` and `source` (see section `overview` or paper for more details).
+
+To run experiments that ask to predict trace (data points with `category="trace"`):
+
+```bash
+python run.py \
+  --prompt CoRe/prompts \
+  --result_folder CoRe/response \
+  --model ds-v3 \
+  --max_tokens 2048 \
+  --temperature 0 \
+  --trace
+```
+
+This runs all the experiments that ask the model to predict trace and generates responses in the `CoRe/response` folder.
+
+To run experiments with source enumeration task (with CoRe Lite):
+
+```bash
+python run.py \
+  --prompt CoRe/prompts \
+  --result_folder CoRe/response \
+  --model ds-v3 \
+  --max_tokens 2048 \
+  --temperature 0 \
+  --source \
+  --lite CoRe/lite.json
+```
+
+This runs all experiments with source mode, and `--lite` specifies data points in CoRe Lite.
+
+After running either command, you can call `eval.sh` to evaluate the results.
+```bash
+bash eval.sh CoRe/response/ds-v3
+```
+
+Before using the bash scripts, please double-check the bash scripts and update the paths and arguments.
+
+**To run experiment or evaluate only on CoRe Lite, use the `--lite lite.json` argument when running `run.py` or `eval.py`.**
+
 
 ---
 ### 📜 Citation
