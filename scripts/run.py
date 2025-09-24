@@ -12,15 +12,14 @@ import sys
 from utils import *
 
 # Constants
-MAX_ITER = 3
-MAX_PROC = 10
-TIMEOUT_ITER = 100
+MAX_ITER = 3     # maximum number of retries for a single query if the model returns something invalid or unparseable.
+TIMEOUT_ITER = 100     # maximum number of full retries if something goes really wrong (e.g., API timeout, network error, Bedrock error, etc.).
 RETRY_PROMPT = (
     "Your previous response could not be parsed correctly. "
     "Please re-read the prompt and ensure your answer strictly follows the required JSON format enclosed with ```<your response here>```."
     "Ensure that your JSON is valid and matches the specification. Try again:"
 )
-
+MAX_PROC = 10 
 
 MODEL_MAP = {
     "claude3.5": Claude.V3,
@@ -36,14 +35,12 @@ MODEL_MAP = {
     "gemini": GEMINI.PRO_2_5
 }
 
-def run_inference(prompt_file: str, response_folder: str, model="Claude.V3", max_tokens=500, temperature=0, lite: Optional[str]=None, trace:bool=False) -> None:
+def run_inference(prompt_file: str, response_folder: str, model="claude3.5", max_tokens=500, temperature=0, lite: Optional[str]=None, trace:bool=False) -> None:
     os.makedirs(response_folder, exist_ok=True)
 
     if lite:
         lite_metadata = read_json(lite)
 
-    if model not in MODEL_MAP:
-        print("Invalid model. Current supported models: ", MODEL_MAP.keys())
     llm = LLM(model_id=MODEL_MAP[model], max_token_to_sample=max_tokens, temperature=temperature)
 
     with open(prompt_file, 'r') as f:
@@ -134,7 +131,7 @@ def _parallel_worker(args):
     run_inference(*args)
 
 def run_inference_on_folder(prompt_folder: str, response_folder: str,
-                             model="Claude.V3", max_tokens=500, temperature=0, lite: Optional[str] = None, trace:bool=False, source:bool=False) -> None:
+                             model="claude3.5", max_tokens=500, temperature=0, lite: Optional[str] = None, trace:bool=False, source:bool=False) -> None:
     tasks = []
     for filename in os.listdir(prompt_folder):
         if filename.endswith(".jsonl"):
@@ -157,7 +154,7 @@ def parse_args():
 
     parser.add_argument("--result_folder", type=str, required=True,
                         help="Root directory where results will be stored under subfolders named by model.")
-    parser.add_argument("--model", type=str, default="Claude.V3", help="LLM model identifier. Check LLM.py for supported models.")
+    parser.add_argument("--model", type=str, default="claude3.5", help="LLM model identifier. Check MODEL_MAP for supported models. To support your own model, check LLM.py.")
     parser.add_argument("--max_tokens", type=int, default=500, help="Max tokens for model to generate, including thinking tokens.")
     parser.add_argument("--temperature", type=float, default=0, help="Temperature setting for the model.")
 
@@ -181,6 +178,12 @@ def parse_args():
 
     if args.prompt_folder and (not args.source and not args.trace) or (args.source and args.trace):
         print(f"❌ Error: eactly one of --trace and --source need to be set. ")
+        sys.exit(1)
+
+    if args.model not in MODEL_MAP:
+        print("❌ Error: Invalid model. Current supported models: ", MODEL_MAP.keys())
+        sys.exit(1)
+
     # Build output paths
     model_dir = os.path.join(args.result_folder, args.model)
     args.response_folder = os.path.join(model_dir, "response")

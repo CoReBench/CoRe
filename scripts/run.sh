@@ -6,5 +6,5 @@ python run.py \
   --model claude3.5 \       # <- your input
   --max_tokens 2048 \
   --temperature 0 \
-  --source \
+  --source \    # run source enumeration experiments
   --lite CoRe/lite.json   # <- update path
