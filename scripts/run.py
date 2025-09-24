@@ -44,6 +44,7 @@ def run_inference(
     temperature=0,
     lite: Optional[str] = None,
     trace: bool = False,
+    source: bool = False,
 ) -> None:
     os.makedirs(response_folder, exist_ok=True)
 
@@ -80,6 +81,10 @@ def run_inference(
     with open(output_path, "a") as out_f:
         for idx in tqdm(range(len(lines)), desc="Processing prompts"):
             data = json.loads(lines[idx])
+            if source and data["category"] != "source":
+                continue
+            if trace and data["category"] != "trace":
+                continue
             task_id = data.get("task_id")
             task_type = task_id.split("_")[0]
             language = data["language"]
@@ -162,10 +167,6 @@ def run_inference_on_folder(
     tasks = []
     for filename in os.listdir(prompt_folder):
         if filename.endswith(".jsonl"):
-            if trace and not ("trace" in filename):
-                continue
-            if source and not ("source" in filename):
-                continue
             prompt_file_path = os.path.join(prompt_folder, filename)
             tasks.append(
                 (
@@ -176,6 +177,7 @@ def run_inference_on_folder(
                     temperature,
                     lite,
                     trace,
+                    source,
                 )
             )
 
@@ -315,6 +317,7 @@ if __name__ == "__main__":
             temperature=args.temperature,
             lite=args.lite,
             trace=args.trace,
+            source=args.source,
         )
     else:
         print(f"Running inference on all files in folder: {args.prompt}")
