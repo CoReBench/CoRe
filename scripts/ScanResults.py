@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional, Set, Tuple
+from typing import Any, Dict, Optional, Union
 from utils import *
 
 
@@ -115,3 +115,49 @@ class ScanResults:
         # If no match found
         print(f"Cannot find scan results for label file {label_filename}")
         return None
+
+
+def condition_range(block_scan_results: Dict) -> Tuple[int, int, int]:
+    """
+    Given a dictionary describing either an if-statement or a loop-statement,
+    return (condition_line, start_line, end_line).
+
+    Examples:
+        If-statement block:
+        {
+            "condition_start_line": 127,
+            "condition_end_line": 127,
+            "true_branch_start_line": 128,
+            "true_branch_end_line": 130,
+            "else_branch_start_line": 0,
+            "else_branch_end_line": 0,
+            "condition_str": "(c == EOF)"
+        }
+        => returns (127, 127, 130)
+
+        Loop-statement block:
+        {
+            "header_start_line": 125,
+            "header_end_line": 125,
+            "loop_body_start_line": 127,
+            "loop_body_end_line": 146,
+            "loop_statement_start_line": 125,
+            "loop_statement_end_line": 147,
+            "header_str": "(1)"
+        }
+        => returns (125, 125, 147)
+    """
+    if "condition_start_line" in block_scan_results:
+        # It's an if- (or similar) statement
+        cond_line = block_scan_results["condition_start_line"]
+        cond_end = block_scan_results.get("condition_end_line", cond_line)
+        true_end = block_scan_results.get("true_branch_end_line", 0)
+        else_end = block_scan_results.get("else_branch_end_line", 0)
+        # The block extends as far as the max of cond_end, true_end, else_end
+        end_line = max(cond_end, true_end, else_end) if cond_line else cond_line
+        return (cond_line, cond_line, end_line)
+    else:
+        # It's a loop statement
+        header_line = block_scan_results["header_start_line"]
+        loop_statement_end = block_scan_results["loop_statement_end_line"]
+        return (header_line, header_line, loop_statement_end)
