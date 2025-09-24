@@ -157,7 +157,7 @@ def parse_args():
 
     parser.add_argument("--result_folder", type=str, required=True,
                         help="Root directory where results will be stored under subfolders named by model.")
-    parser.add_argument("--model", type=str, default="Claude.V3", help="LLM model identifier.")
+    parser.add_argument("--model", type=str, default="Claude.V3", help="LLM model identifier. Check LLM.py for supported models.")
     parser.add_argument("--max_tokens", type=int, default=500, help="Max tokens for model to generate.")
     parser.add_argument("--temperature", type=float, default=0, help="Temperature setting for the model.")
 
