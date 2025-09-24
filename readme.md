@@ -84,6 +84,7 @@ Large Language Models (LLMs) are increasingly applied to **program analysis and 
 ### 📦 CoRe Lite
 A smaller representative subset is available via `lite.json` for lightweight experimentation.
 
+For usage, please see the "Example Usage" section below.
 ---
 
 
@@ -128,7 +129,7 @@ python run.py \
 
 This runs all the experiments that ask the model to predict trace and generates responses in the `CoRe/response` folder.
 
-To run experiments with source enumeration task (with CoRe Lite):
+To run experiments with source enumeration task (with CoRe Lite, data points with `category="trace"`):
 
 ```bash
 python run.py \
