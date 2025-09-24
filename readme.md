@@ -13,7 +13,7 @@ This repository contains the source code, prompts, and annotation data for **CoR
 
 ---
 
-## 📘 Overview
+### 📘 Overview
 
 Large Language Models (LLMs) are increasingly applied to **program analysis and reasoning**. However, evaluating their ability to perform **static reasoning tasks** (beyond text generation) has been underexplored.  
 
@@ -28,8 +28,7 @@ Large Language Models (LLMs) are increasingly applied to **program analysis and 
   - `trace`: pairwise classification + reasoning trace  
 
 ---
-
-###  Repository Structure
+###  📂 Repository Structure
 ```
 .
 ├── raw_annotation/       # Human-verified annotations across C/C++, Java, Python
@@ -62,10 +61,7 @@ Large Language Models (LLMs) are increasingly applied to **program analysis and 
 
 ```
 
----
 
-
-### Contents
 
 - `raw_annotation/`: Contains annotated programs in three languages (C/C++, Java, Python). Each contains:
     - `code/`: Source files
@@ -83,13 +79,15 @@ Large Language Models (LLMs) are increasingly applied to **program analysis and 
     - `run.sh`, `eval.sh`: Example scripts demonstrating usage
 - `lite.json`: Defines the list of task IDs included in CoRe Lite, a smaller representative subset of the full benchmark.
 
+---
+
 ### 📦 CoRe Lite
 A smaller representative subset is available via `lite.json` for lightweight experimentation.
 
 ---
 
 
-## 🚀 Quickstart
+### 🚀 Quickstart
 
 To run or evaluate models, see the example shell scripts:
 
@@ -110,8 +108,8 @@ python scripts/eval.py --help
 
 To evaluate only on CoRe Lite, use the `--lite lite.json` argument when running `run.py`.
 
---
-## 📜 Citation
+---
+### 📜 Citation
 ```
 @article{xie2025core,
   title={CORE: Benchmarking LLMs Code Reasoning Capabilities through Static Analysis Tasks},
