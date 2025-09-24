@@ -1,10 +1,10 @@
 #!/bin/bash
 
 python run.py \
-  --prompt_folder CoRe/prompts \          # <- update path
-  --result_folder xxx \     # <- update path, your input
-  --model claude3.5 \       # <- your input
+  --prompt_folder ../prompts \
+  --result_folder ../response \
+  --model claude3.5 \
   --max_tokens 2048 \
   --temperature 0 \
-  --source \    # run source enumeration experiments
-  --lite CoRe/lite.json   # <- update path
+  --source \
+  --lite ../lite.json

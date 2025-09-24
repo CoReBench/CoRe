@@ -11,6 +11,6 @@ response_root="$1"
 
 python eval.py \
   -f "${response_root}/response" \
-  -l CoRe/raw_annotation \
+  -l ../raw_annotation \
   -o "${response_root}/eval" \
   -c "${response_root}/eval/results.csv"
