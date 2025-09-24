@@ -1,13 +1,35 @@
 # CoRe: Benchmarking LLMs’ Code Reasoning Capabilities through Static Analysis Tasks
 
-This repository contains the source code, prompts, and annotation data for CoRe, a benchmark designed to evaluate LLMs’ code reasoning capabilities through static analysis tasks.
+📢 **News**: CoRe has been accepted as a **Spotlight Paper** at **NeurIPS 2025 Datasets & Benchmarks Track**! 🎉  
+
+This repository contains the source code, prompts, and annotation data for **CoRe**, a benchmark designed to evaluate LLMs’ **code reasoning capabilities** through **static analysis tasks** across C/C++, Java, and Python.
+
+---
 
 ### 🔗 Links
-- Dataset: https://huggingface.co/datasets/danningx/CoRe
-- Website: https://corebench.github.io
+- 📂 Dataset: [Hugging Face](https://huggingface.co/datasets/danningx/CoRe)  
+- 🌐 Website: [https://corebench.github.io](https://corebench.github.io)  
+- 📄 Paper (arXiv): [https://arxiv.org/abs/2507.05269](https://arxiv.org/abs/2507.05269)  
 
-  
-### Repository Structure
+---
+
+## 📘 Overview
+
+Large Language Models (LLMs) are increasingly applied to **program analysis and reasoning**. However, evaluating their ability to perform **static reasoning tasks** (beyond text generation) has been underexplored.  
+
+**CoRe** fills this gap by introducing:  
+- **Human-verified annotations** across C/C++, Java, Python programs.  
+- **Three task families** for static reasoning:  
+  - `data`: data dependency reasoning  
+  - `control`: control dependency reasoning  
+  - `infoflowdep`: information flow reasoning  
+- **Two modes**:  
+  - `source`: enumerate dependency sources  
+  - `trace`: pairwise classification + reasoning trace  
+
+---
+
+###  Repository Structure
 ```
 .
 ├── raw_annotation/       # Human-verified annotations across C/C++, Java, Python
@@ -40,6 +62,8 @@ This repository contains the source code, prompts, and annotation data for CoRe,
 
 ```
 
+---
+
 
 ### Contents
 
@@ -59,8 +83,13 @@ This repository contains the source code, prompts, and annotation data for CoRe,
     - `run.sh`, `eval.sh`: Example scripts demonstrating usage
 - `lite.json`: Defines the list of task IDs included in CoRe Lite, a smaller representative subset of the full benchmark.
 
+### 📦 CoRe Lite
+A smaller representative subset is available via `lite.json` for lightweight experimentation.
 
-### Usage
+---
+
+
+## 🚀 Quickstart
 
 To run or evaluate models, see the example shell scripts:
 
@@ -69,7 +98,7 @@ To run or evaluate models, see the example shell scripts:
 bash scripts/run.sh
 bash scripts/eval.sh
 ```
-Before running, please double check the scripts and update the paths and arguments.
+Before running, please double-check the scripts and update the paths and arguments.
 
 
 Or use the CLI:
@@ -81,3 +110,13 @@ python scripts/eval.py --help
 
 To evaluate only on CoRe Lite, use the `--lite lite.json` argument when running `run.py`.
 
+--
+## 📜 Citation
+```
+@article{xie2025core,
+  title={CORE: Benchmarking LLMs Code Reasoning Capabilities through Static Analysis Tasks},
+  author={Xie, Danning and Zheng, Mingwei and Liu, Xuwei and Wang, Jiannan and Wang, Chengpeng and Tan, Lin and Zhang, Xiangyu},
+  journal={arXiv preprint arXiv:2507.05269},
+  year={2025}
+}
+```
